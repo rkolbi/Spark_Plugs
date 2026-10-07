@@ -1,0 +1,623 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'><style type='text/css'>html {overflow-x: initial !important;}</style>
+<style type='text/css'  id="style-base">:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, "Segoe UI Emoji", "SF Pro", sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p *, #write.first-line-indent svg * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+img:not([height]) { height: auto; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+svg sub, svg sup { position: static; }
+.nodeLabel p { padding-right: 2px; padding-left: 2px; }
+.typora-export .nodeLabel p { padding-right: 0px; padding-left: 0px; }
+foreignobject { overflow: visible; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+li p { orphans: 1; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; position: relative; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.mermaid-svg { margin: auto; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+</style>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&amp;subset=latin,latin-ext' type='text/css' />
+<style type='text/css'  id="style-theme_css">:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', 'SF Pro', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+</style>
+<style type='text/css'  id="style-lp">ol, ul {padding-left: 40px}</style>
+
+<title>Spark_Plug_Gap_and_Electrode_Design</title>
+</head>
+<body class='typora-export os-windows typora-export-show-outline typora-export-no-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#spark-plug-gaps-electrode-design--selection-beyond-the-oem-part-number">Spark-Plug Gaps, Electrode Design &amp; Selection Beyond the OEM Part Number</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#gap-electrode-design-firing-voltage-and-why-the-rest-of-the-ignition-system-matters">Gap, Electrode Design, Firing Voltage, and Why the Rest of the Ignition System Matters</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#key-takeaways">Key takeaways</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#what-this-means-for-my-l29">What this means for my L29</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#the-deeper-reading-and-technical-discussion">The Deeper Reading and Technical Discussion</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#gap-is-only-part-of-the-story">Gap Is Only Part of the Story</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#why-this-becomes-important-on-the-l29">Why This Becomes Important on the L29</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#a-relevant-gm-iridium-gap-change">A Relevant GM Iridium-Gap Change</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#electrode-design-matters-too">Electrode Design Matters Too</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#putting-a-number-on-field-concentration">Putting a Number on Field Concentration</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#modeled-comparison-it16tt-vs-a-conventional-plug">Modeled Comparison: IT16TT vs. a Conventional Plug</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#other-practical-benefits-of-the-fine-wire-design">Other Practical Benefits of the Fine-Wire Design</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#less-metal-around-the-developing-spark">Less Metal Around the Developing Spark</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#why-holding-the-tip-shape-and-gap-matters">Why Holding the Tip Shape and Gap Matters</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#an-illustrative-voltage-margin-example">An Illustrative Voltage-Margin Example</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#breakdown-voltage-is-not-the-whole-spark">Breakdown Voltage Is Not the Whole Spark</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#heat-range-still-matters">Heat Range Still Matters</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#choose-a-plug-designed-for-the-gap-you-want">Choose a Plug Designed for the Gap You Want</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#what-if-you-want-to-stay-near-the-060-inch-spec">What If You Want to Stay Near the .060-Inch Spec?</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#the-practical-takeaway">The Practical Takeaway</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#parts-quality-and-counterfeit-components">Parts Quality and Counterfeit Components</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#sources-and-model-references">Sources and Model References</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#acknowledgment">Acknowledgment</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#appendix-how-the-numbers-were-calculated">Appendix: How the Numbers Were Calculated</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#appendix-a-firing-voltage-vs-gap-the-first-table">Appendix A: Firing Voltage vs. Gap (the First Table)</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#appendix-b-field-concentration-at-the-tip">Appendix B: Field Concentration at the Tip</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#appendix-c-the-breakdown-model-for-the-plug-comparison">Appendix C: The Breakdown Model for the Plug Comparison</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#appendix-d-the-fine-wire-design-estimates">Appendix D: The Fine-Wire Design Estimates</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#complete-kernel-geometry-results">Complete Kernel-Geometry Results</a></div><ul class="outline-children"></ul></li></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#license">License</a></div><ul class="outline-children"></ul></li></ul></li></div></div><div id='write'  class=''><h1 id='spark-plug-gaps-electrode-design--selection-beyond-the-oem-part-number'><span>Spark-Plug Gaps, Electrode Design &amp; Selection Beyond the OEM Part Number</span></h1><h2 id='gap-electrode-design-firing-voltage-and-why-the-rest-of-the-ignition-system-matters'><span>Gap, Electrode Design, Firing Voltage, and Why the Rest of the Ignition System Matters</span></h2><h3 id='key-takeaways'><span>Key takeaways</span></h3><p><span>Here is the short version. I compared conventional plugs gapped from .035 to .060 inch with the Denso IT16TT at .040 inch. The calculations were run two ways because any mathematical spark-breakdown model needs an assumed point at which the electrical discharge becomes a self-sustaining spark.</span></p><p><span>The main calculation, called </span><strong><span>K = 18</span></strong><span>, uses a commonly accepted threshold and provides the figures shown first. I also ran a second calculation adjusted so that a simple, uniform air gap agrees with an older laboratory equation. That is called the </span><strong><span>Bruce-matched case</span></strong><span>, and it produces the larger figures shown in parentheses. I include it to show how sensitive the results are to the model settings, not because I consider it the expected result. Appendix C explains both methods for anyone interested in the technical details. None of these figures are ignition-scope measurements from an L29.</span></p><figure class='table-figure'><table><thead><tr><th><span>Modeled firing-voltage requirement</span></th><th><span>Cruising / light load</span></th><th><span>Heavy load</span></th></tr></thead><tbody><tr><td><span>IT16TT at .040&quot; vs. conventional plug at .035&quot;</span></td><td><span>about 3% less (up to 14%)</span></td><td><span>about 7% less (up to 16%)</span></td></tr><tr><td><span>IT16TT at .040&quot; vs. conventional plug at .060&quot;</span></td><td><span>about 33% less (up to 41%)</span></td><td><span>about 36% less (up to 42%)</span></td></tr><tr><td><span>Conventional plug at .035&quot; vs. conventional plug at .060&quot;</span></td><td><span>about 31% less</span></td><td><span>about 31% less</span></td></tr></tbody></table></figure><ul><li><p><strong><span>The starting point matters:</span></strong><span> The factory manual lists both .035 and .060 inch for the L29, and that changes the comparison. Against a conventional plug at .060 inch, the IT16TT at .040 inch shows a large modeled reduction. Most of that comes from the smaller gap; a conventional plug at .035 inch already needs about 31% less voltage than one at .060 inch. Against that .035-inch plug, the IT16TT&#39;s modeled advantage is only about 3–7%.</span></p><ul><li><p><strong><span>Gap:</span></strong><span> Closing a conventional plug from .060 to .040 inch lowers the calculated requirement by about 24% in the geometry model and 29–30% in the simpler uniform-field calculation. Opening a conventional plug from .035 to .040 inch adds about 10%.</span></p></li><li><p><strong><span>Electrode design:</span></strong><span> At the same .040-inch gap, the main model puts the IT16TT about 12% lower at light load and 15% lower under heavy load. That answer depends heavily on the assumed tip shapes; broader sensitivity runs span roughly 4–35%. The separate field calculation helps explain the trend, but its 1.75-times and 2.39-times field ratios are not voltage-saving percentages.</span></p></li></ul></li><li><p><strong><span>Reserve and durability:</span></strong><span> A plug that requires less firing voltage leaves more of the ignition system’s existing capability in reserve for hard acceleration, towing, high cylinder pressure, moisture, wear, and aging secondary-ignition parts. It does not create additional coil energy or engine power. The 3D model also shows that the IT16TT’s fine tips place less metal around much of the developing flame kernel. Just as important, the precious-metal tips should retain their shape and gap longer. The first .005 inch of modeled gap growth adds about 9–11% to a conventional plug’s voltage demand, compared with roughly 6–7% for the IT16TT.</span></p></li><li><p><strong><span>GM precedent:</span></strong><span> GM TSB #03-06-04-060B documents GM moving a number of later V8s to an iridium-tip plug with a factory .040-inch gap, and it attributes the smaller gap to the different firing-tip design. It does not cover the L29, but it shows GM itself pairing a fine-wire tip with a tighter gap instead of treating .060 inch as a given.</span></p></li><li><p><strong><span>L29 factory-spec discrepancy:</span></strong><span> The </span><em><span>1997 Chevrolet Light Duty CK Truck Service Manual, Volume 1-1</span></em><span> lists .035 inch in the engine-mechanical section and “.60” without units in the ignition section, which I read as .060 inch. The ignition page points to Section 0B, and the underhood emissions label may settle the question. Until then, I show both baselines instead of choosing the one that makes the result look best.</span></p></li><li><p><strong><span>Limits:</span></strong><span> All performance numbers here are modeled estimates. No plug can fix a worn cap, rotor, wires, poor fuel delivery, or another underlying problem.</span></p></li></ul><h3 id='what-this-means-for-my-l29'><span>What this means for my L29</span></h3><p><span>For me, the IT16TT at its roughly .040-inch factory gap is a well-supported choice based on fit and heat range. Compared with a conventional plug at .060 inch, the model shows a substantial reduction in firing-voltage demand, which should leave more ignition-system reserve under heavy load. Compared with a conventional plug at .035 inch, the calculated advantage is much smaller—about 3–7%.</span></p><p><span>The fine-wire Twin-Tip geometry also places less metal around the developing flame kernel and should retain its gap and firing-tip shape longer than a conventional nickel plug. That does not prove that it produces the same kernel as a conventional plug with a wider gap, but it does suggest that the smaller .040-inch gap does not automatically mean poorer early flame development in this case.</span></p><p><span>With all that said, I am not expecting a “magic” plug or additional horsepower. What I am looking for is reliable performance under load, a little more ignition reserve when cylinder pressure and firing-voltage demand are highest, and firing geometry that should remain consistent for a long time.</span></p><p><img src="opening-voltage-comparison.png" alt="Two-panel chart comparing modeled firing-voltage requirements within each load condition: the conventional .060-inch reference is 100 percent, the conventional .040-inch plug is about 76 percent, the conventional .035-inch plug is about 69 percent, and the IT16TT at .040 inch is 59–67 percent during cruising and 58–64 percent under heavy load"></p><p><em><span>This chart compares each plug with the conventional .060-inch reference under the same load. Rounded to whole percentages, the conventional .035-inch plug requires about 69% as much modeled firing voltage, and the IT16TT at .040 inch requires 59–67% during cruising and 58–64% under heavy load. Relative to the conventional .035-inch plug, the IT16TT bars correspond to about 3% less (reference case) at light load and about 7% less at heavy load.</span></em></p><h2 id='the-deeper-reading-and-technical-discussion'><span>The Deeper Reading and Technical Discussion</span></h2><p><span>That is the practical answer. What follows is the deeper explanation of how I got there, including the assumptions, measurements, calculations, and limitations behind the summary above.</span></p><p><span>What started as a comparison between two spark plugs turned into a much deeper look at gap, electrode design, cylinder pressure, temperature, and ignition-system condition. The L29 is especially interesting because the 1997 service manual itself gives two different gap figures: .035 inch in the engine-mechanical section and what appears to be .060 inch in the ignition-system section. That discrepancy is what sent me down this rabbit hole.</span></p><p><img src="conflicting-gaps-1.png" alt="1997 Chevrolet Light Duty CK Truck Service Manual, Volume 1-1, engine-mechanical specifications"></p><p><img src="conflicting-gaps-2.png" alt="1997 Chevrolet Light Duty CK Truck Service Manual, Volume 1-1, ignition-system specifications for spark plugs"></p><p><em><span>1997 Chevrolet Light Duty CK Truck Service Manual, Volume 1-1. The engine-mechanical page lists </span><strong><span>0.035 in.</span></strong><span> The ignition page prints </span><strong><span>0.60</span></strong><span> without a unit, which I read as 0.060 inch, and refers plug usage to Section 0B.</span></em></p><p><span>I first looked at the ACDelco R44LTS as a conventional tighter-gap option. Then I found the Denso IT16TT, which comes near .040 inch and uses a 0.4 mm iridium center tip and a 0.7 mm platinum ground tip. At that point, the question became less about brand names and more about what the gap and electrode shape ask the ignition system to do.</span></p><p><span>The basic dimensions match: both use a 14 mm thread, 17.5 mm reach, tapered seat, and essentially the same 5/8-inch/16 mm hex. Heat-range numbers do not translate directly between brands, so I checked Denso&#39;s own cross-reference. Denso maps the R44LTS to several heat-range-16 plugs, and the IT16TT is also heat range 16. The DensoProducts.com retailer application guide also lists DEN4713/IT16TT as compatible when its vehicle filter is set to the 1997 K2500 Suburban, specifying a .040-inch gap and eight plugs.</span></p><h2 id='gap-is-only-part-of-the-story'><span>Gap Is Only Part of the Story</span></h2><p><span>A wider gap can expose more mixture to the initial discharge and may help the flame kernel get started, but wider is not automatically better. Voltage demand rises with gap, and any possible combustion benefit disappears if the ignition starts missing under acceleration, towing, or a long grade. The practical goal is a useful gap that still leaves enough ignition reserve.</span></p><p><span>The table below shows how modeled firing voltage changes with gap under representative light- and heavy-load conditions. The load points—5 bar/600 K and 13 bar/720 K—are not measurements from my engine. They are simply consistent conditions for comparing trends. The conventional rows use the Bruce uniform-field equation; the IT16TT row adds the separate fine-tip adjustment explained later. Appendix A at the end has the step-by-step calculation.</span></p><p><span>To keep the math from turning into one big apples-to-oranges comparison, I use three separate calculations for three separate questions:</span></p><ol start='' ><li><p><strong><span>The uniform-field gap calculation</span></strong><span> compares how pressure, temperature, and gap change the baseline breakdown-voltage trend. It does not represent spark-plug electrode shape.</span></p></li><li><p><strong><span>The idealized field and breakdown models</span></strong><span> explore how assumed tip geometry might change firing-voltage demand. Their percentages are model-dependent and are not measurements of the IT16TT or the L29.</span></p></li><li><p><strong><span>The measured-profile geometry calculation</span></strong><span> compares how much electrode metal volume and exposed surface lie near an idealized growing flame kernel. It does not calculate firing voltage, heat transfer, or combustion improvement.</span></p></li></ol><figure class='table-figure'><table><thead><tr><th><span>Plug and gap</span></th><th><span>Light load</span></th><th><span>Heavy load</span></th></tr></thead><tbody><tr><td><span>Conventional plug at .035&quot;</span></td><td><span>~8.0 kV</span></td><td><span>~15.4 kV</span></td></tr><tr><td><span>Denso IT16TT at ~.040&quot;</span></td><td><span>~7.9 kV</span></td><td><span>~14.6 kV</span></td></tr><tr><td><span>Conventional plug at .040&quot;</span></td><td><span>~8.9 kV</span></td><td><span>~17.3 kV</span></td></tr><tr><td><span>Conventional plug at .045&quot;</span></td><td><span>~9.9 kV</span></td><td><span>~19.2 kV</span></td></tr><tr><td><span>Conventional plug at .050&quot;</span></td><td><span>~10.8 kV</span></td><td><span>~21.0 kV</span></td></tr><tr><td><span>Conventional plug at .055&quot;</span></td><td><span>~11.7 kV</span></td><td><span>~22.9 kV</span></td></tr><tr><td><span>Conventional plug at .060&quot;</span></td><td><span>~12.6 kV</span></td><td><span>~24.7 kV</span></td></tr></tbody></table></figure><p><em><span>The conventional-plug rows come from the uniform-field gap calculation. The IT16TT row starts with the conventional .040-inch result and applies the fine-tip adjustment from the separate breakdown model. These are calculated comparisons under representative conditions, not predicted firing voltages for my L29.</span></em></p><p><img src="firing-voltage-vs-gap.png" alt="Modeled firing-voltage requirement versus plug gap for a conventional plug under light and heavy load, with the Denso IT16TT shown at about .040 inch"></p><p><em><span>Modeled firing-voltage requirement versus gap, from the table above. The stars show the IT16TT at about .040 inch under the same two load conditions.</span></em></p><p><span>The important part is the trend. Opening a conventional gap from .035 to .060 inch raises the modeled firing-voltage requirement by roughly 57–60%, and increasing cylinder pressure raises it again. The IT16TT estimate falls only slightly below the conventional .035-inch result because its fine-tip advantage is partly offset by its slightly wider .040-inch gap.</span></p><p><span>Road Trip&#39;s experience with a Sun 1115 engine analyzer helped connect this to the real world. He described firing voltage jumping during a snap-throttle test, then settling once the engine reached a steady rpm. He also saw marginal systems that ran fine at idle but lost the spark when cylinder pressure rose. That is the same basic physics showing up on a shop scope, and it is why I keep coming back to ignition reserve rather than gap alone.</span></p><h2 id='why-this-becomes-important-on-the-l29'><span>Why This Becomes Important on the L29</span></h2><p><span>Before the plug fires, the coil, coil wire, cap, rotor, and plug wire all have to carry enough voltage to break down the plug gap. As that requirement rises, moisture, carbon tracking, cracked insulation, or worn secondary parts become more likely to offer an easier path.</span></p><p><span>That matters on the L29 because the Vortec crab-cap distributor has a reputation among owners for cap and rotor trouble. GMT400 discussions also commonly mention successful gaps around .040–.045 inch on distributor-equipped Vortec engines. Those reports are useful experience, not fleet data, but they point in the same direction as the model: a tighter gap uses less of the system&#39;s available voltage.</span></p><p><span>That does not mean .060 inch cannot work in a healthy system, and a lower-demand plug will not repair a tracking cap, worn rotor, or leaking wire. It only leaves more room before one of those weaknesses becomes the easier path.</span></p><h3 id='a-relevant-gm-iridium-gap-change'><span>A Relevant GM Iridium-Gap Change</span></h3><p><span>GM TSB #03-06-04-060B documents a later switch from platinum plugs to the .040-inch ACDelco 41-985 iridium plug on several V8 applications. GM told technicians not to alter the factory gap and tied the change to the different firing-tip design.</span></p><p><span>The bulletin does </span><strong><span>not</span></strong><span> cover the L29, L30, or L31, so it is not a direct specification for these engines. I include it only because it shows GM pairing a smaller gap with a different electrode design instead of treating .060 inch as automatically better.</span></p><h2 id='electrode-design-matters-too'><span>Electrode Design Matters Too</span></h2><p><span>Two plugs with the same gap do not necessarily ask the same thing from the ignition system. A conventional plug uses a relatively large center electrode and wide ground strap. The IT16TT uses a 0.4 mm iridium center tip and a 0.7 mm platinum ground tip.</span></p><p><img src="electrode-design.png" alt="Denso TT electrode vs ACDelco traditional electrode"></p><p><img src="measured-it16tt-profile.png" alt="Measured side-profile geometry of the IT16TT center electrode, air gap, ground needle, finite-width ground strap, and ceramic-nose boundary"></p><p><em><span>Measured IT16TT firing-end profile used in the three-dimensional geometry calculation.</span></em></p><p><span>Those measurements improve the later 3D flame-kernel comparison because they describe the metal behind the firing faces. The simpler field calculation below still depends mainly on the gap and assumed tip radii. In plain language, a small tip concentrates the electric field more strongly than a broad one, which can help start the discharge at a lower applied voltage.</span></p><h3 id='putting-a-number-on-field-concentration'><span>Putting a Number on Field Concentration</span></h3><p><span>To get a feel for the size of that effect, I compared an assumed 1.25 mm conventional tip radius with the IT16TT&#39;s 0.20 mm center-tip radius at the measured 1.02 mm gap. Appendix B has the math.</span></p><figure class='table-figure'><table><thead><tr><th><span>Electrode</span></th><th><span>Tip radius r</span></th><th><span>Rough formula (per volt)</span></th><th><span>Exact solution (per volt)</span></th><th><span>Relative to conventional</span></th></tr></thead><tbody><tr><td><span>Conventional (~2.5 mm center)</span></td><td><span>1.25 mm</span></td><td><span>~1.4 mm⁻¹</span></td><td><span>1.471 mm⁻¹</span></td><td><span>1.0×</span></td></tr><tr><td><span>IT16TT iridium (0.4 mm center)</span></td><td><span>0.2 mm</span></td><td><span>~3.3 mm⁻¹</span></td><td><span>3.520 mm⁻¹</span></td><td><span>2.39×</span></td></tr></tbody></table></figure><p><img src="field-concentration-comparison.png" alt="Bar chart comparing the exact ideal-hyperboloid peak tip electric field per applied kilovolt for the conventional reference and the Denso IT16TT center electrode"></p><p><em><span>Exact ideal-hyperboloid values at the measured 1.02 mm gap. The rough estimates remain in the table above for comparison but are not plotted.</span></em></p><p><span>At 10 kV, the flat-ground calculation gives about 14.7 kV/mm at the conventional tip and 35.2 kV/mm at the IT16TT center tip—a 2.39-times ratio. That is </span><strong><span>not</span></strong><span> a prediction of 2.39 times less firing voltage. It also assumes a flat ground. When the IT16TT&#39;s small ground tip is included, the center-tip value drops to about 25.9 kV/mm, or roughly 1.75 times the conventional value, while the ground tip creates a second weaker peak. The point is simply that tip shape matters; the breakdown model below is what estimates the voltage difference.</span></p><h3 id='modeled-comparison-it16tt-vs-a-conventional-plug'><span>Modeled Comparison: IT16TT vs. a Conventional Plug</span></h3><p><span>For this comparison, I kept the gas conditions, load, and gap the same and changed only the assumed electrode geometry:</span></p><ul><li><p><strong><span>Conventional plug:</span></strong><span> An assumed 1.25 mm center-electrode radius facing a flat ground strap.</span></p></li><li><p><strong><span>Denso IT16TT:</span></strong><span> A 0.20 mm center-electrode radius facing the 0.35 mm-radius ground tip created by its 0.70 mm Twin-Tip electrode.</span></p></li></ul><p><span>The exact point at which an electrical discharge becomes a self-sustaining spark is uncertain, so I ran the calculation with two different thresholds. The </span><strong><span>K = 18</span></strong><span> result is the main calculation. The </span><strong><span>Bruce-matched case</span></strong><span> is a sensitivity check that produces larger advantages but uses a much lower threshold, so I do not treat it as equally realistic. The first number shown below comes from the main model; the number in parentheses comes from the sensitivity check.</span></p><figure class='table-figure'><table><thead><tr><th><span>What changes</span></th><th><span>Cruising / light load</span></th><th><span>Towing / hard acceleration</span></th></tr></thead><tbody><tr><td><span>Conventional .035&quot; → IT16TT .040&quot;</span></td><td><span>3% less (14%)</span></td><td><span>7% less (16%)</span></td></tr><tr><td><span>Conventional .040&quot; → IT16TT .040&quot;</span></td><td><span>12% less (22%)</span></td><td><span>15% less (24%)</span></td></tr><tr><td><span>Conventional .060&quot; → IT16TT .040&quot;</span></td><td><span>33% less (41%)</span></td><td><span>36% less (42%)</span></td></tr><tr><td><span>Conventional .060&quot; → .035&quot;</span></td><td><span>about 31% less</span></td><td><span>about 31% less</span></td></tr><tr><td><span>Conventional .060&quot; → .040&quot;</span></td><td><span>about 24% less</span></td><td><span>about 24% less</span></td></tr><tr><td><span>Conventional .035&quot; → .040&quot;</span></td><td><span>about 10% more</span></td><td><span>about 10% more</span></td></tr></tbody></table></figure><p><span>The first comparison is the most relevant if the L29’s intended conventional-plug gap is .035 inch. The third shows what happens when the IT16TT at .040 inch is compared with the .060-inch specification found elsewhere in the service manual. Keeping both references visible avoids choosing only the baseline that produces the largest result.</span></p><p><img src="modeled-voltage-reduction.png" alt="Grouped bar chart of modeled spark-voltage requirement on a shared light-load baseline for the conventional .060, .040, and .035 inch plugs and the IT16TT at .040 inch: bars show the K equals 18 reference calculation and whiskers extend to the alternate Bruce-matched sensitivity calibration"></p><p><em><span>This chart keeps one shared baseline—the conventional .060-inch plug under light load—so the rise under heavy load remains visible. The opening chart resets the .060-inch plug to 100% within each load. Bars use the main model; whiskers show the alternate sensitivity result.</span></em></p><p><span>In the main model, the IT16TT at .040 inch behaves roughly like an assumed conventional plug around .032–.034 inch. That is why it lands just below the conventional .035-inch reference despite having a slightly wider gap.</span></p><p><span>Compared with a conventional .060-inch plug, the IT16TT at .040 inch shows a 33–36% reduction, with about 24 percentage points coming from the smaller gap. Compared with a conventional .035-inch plug, the net difference is only 3–7%. The simpler uniform-field equation gives a somewhat larger 29–30% gap-only reduction from .060 to .040 because it responds to gap differently from the curved-tip model.</span></p><p><span>Four limitations are worth stating plainly:</span></p><ol start='' ><li><p><strong><span>Tip shape is the weakest input.</span></strong><span> Changing the assumed radii moves the same-gap advantage through a much wider range of roughly 4–35%. A real conventional electrode has sharper edges than the 1.25 mm face radius used in the simplified model, which could move the IT16TT advantage toward the lower end.</span></p></li><li><p><strong><span>The 2.39-times field ratio is an idealized result.</span></strong><span> It describes the IT16TT center tip facing a flat ground. When the actual Twin-Tip ground needle is included, the center-tip comparison falls to about 1.75 times while a second, weaker field peak forms at the ground tip. Neither number is a firing-voltage-saving percentage.</span></p></li><li><p><strong><span>A real cylinder is much more complicated.</span></strong><span> The model does not reproduce mixture motion, turbulence, fuel composition, residual exhaust, electrode temperature, combustion-chamber geometry, or every part of the electrical path. The load points are representative conditions, not measurements from my engine.</span></p></li><li><p><strong><span>Polarity and temperature may also matter.</span></strong><span> I have not measured either one on this L29, so the model cannot divide the result precisely between the center tip, ground tip, polarity, and electrode temperature. Only a secondary-ignition scope test on the truck can show the real firing-voltage difference.</span></p></li></ol><p><span>Iridium and platinum matter mainly because they tolerate heat and erosion well enough to preserve these small firing surfaces. The geometry provides the possible electrical and flame-kernel advantages; the precious metals help that geometry remain consistent in service.</span></p><h2 id='other-practical-benefits-of-the-fine-wire-design'><span>Other Practical Benefits of the Fine-Wire Design</span></h2><p><span>Lower firing-voltage demand is only part of the comparison. I also built a 3D profile from measurements of the actual IT16TT to estimate how much metal surrounds a growing flame kernel. Appendix D has the details.</span></p><h3 id='less-metal-around-the-developing-spark'><span>Less Metal Around the Developing Spark</span></h3><p><span>Once the spark jumps the gap, nearby metal can draw heat from the young flame and physically occupy space around it. To compare the two designs, I calculated the amount of electrode metal volume and exposed metal surface lying inside an idealized spherical kernel centered in the gap.</span></p><p><span>The IT16TT model uses measurements of the actual center tip, both tapered sections, ground needle, gap, and strap. The conventional reference uses an assumed 2.5 mm cylindrical center electrode and a strap with the same measured width and thickness as the IT16TT, but without the projecting ground needle. Photographs show that the R44LTS strap is broadly similar, but I did not measure that plug the same way. This is therefore a comparison between the measured IT16TT and an assumed R44LTS-style reference, not two fully measured plugs.</span></p><p><img src="kernel-electrode-contact.png" alt="Two charts comparing the metal volume and metal surface enclosed by an idealized growing spherical flame kernel for the measured IT16TT profile, a conventional reference at the same .040-inch gap, and the conventional reference at a .060-inch gap"></p><p><em><span>Three-dimensional geometric proxies, not a transient thermal-quenching simulation. The dashed line marks the approximately 1.44 mm kernel radius at which the idealized sphere first reaches the IT16TT ground strap; the dotted line marks the approximately 2.08 mm radius at which it reaches the IT16TT strap&#39;s visible sides. The IT16TT strap&#39;s back face is approximately 2.90 mm from the gap center, beyond the plotted range.</span></em></p><p><span>At a modeled kernel radius of 1.0 mm, the IT16TT contains about 81% less metal volume and 56% less metal surface than the same-gap conventional reference. At 1.5 mm, the differences are about 92% and 69%. The complete values are included in Appendix D.</span></p><p><span>I also compared the IT16TT at .040 inch with the assumed conventional geometry at .060 inch. At a 1.0 mm kernel radius, the IT16TT contains about 28% less metal volume and 23% less surface. At 1.5 mm, it contains about 87% less volume and 60% less surface.</span></p><p><span>The IT16TT is not better at every instant. Before a centered kernel reaches half of the conventional .060-inch gap, it has not touched those wider-gap electrodes at all. Beyond roughly a 1 mm kernel radius, however, the IT16TT’s much smaller tips more than offset the wider conventional gap in these two geometric measures.</span></p><p><span>These results are consistent with less early heat loss, but this is not a heat-transfer or combustion simulation. The percentages do not mean an equal reduction in thermal quenching, and they do not predict horsepower. The narrow conclusion is that the measured IT16TT geometry places less metal around much of the modeled early kernel than the assumed conventional reference. Published experiments provide support for that general direction, but the actual effect on an L29 would have to be measured.</span></p><h3 id='why-holding-the-tip-shape-and-gap-matters'><span>Why Holding the Tip Shape and Gap Matters</span></h3><p><span>The precious metals matter mainly because they help the plug keep the gap and fine firing shape that make it easier to fire.</span></p><p><strong><span>Gap growth.</span></strong><span> As a plug wears and its gap opens, the required firing voltage continues to rise. Starting from .040 inch:</span></p><figure class='table-figure'><table><thead><tr><th><span>Gap growth</span></th><th><span>Conventional plug: additional voltage required</span></th><th><span>IT16TT: additional voltage required</span></th></tr></thead><tbody><tr><td><span>+.005&quot; to .045&quot;</span></td><td><span>9–11%</span></td><td><span>6–7%</span></td></tr><tr><td><span>+.010&quot; to .050&quot;</span></td><td><span>17–22%</span></td><td><span>11–13%</span></td></tr><tr><td><span>+.015&quot; to .055&quot;</span></td><td><span>24–32%</span></td><td><span>16–18%</span></td></tr><tr><td><span>+.020&quot; to .060&quot;</span></td><td><span>31–43%</span></td><td><span>21–23%</span></td></tr></tbody></table></figure><p><span>The conventional-plug range comes from the two calculations used earlier. The IT16TT values come from the fine-tip model. I do not have wear-rate data showing how quickly either plug reaches these gaps, so the figures show the cost of gap growth—not the service life of either plug.</span></p><p><strong><span>Tip shape.</span></strong><span> The IT16TT&#39;s advantage depends on the tip staying small. Holding the gap at .040 inch and the ground tip fixed, here is how the modeled advantage over a conventional plug changes as the effective radius of the center tip grows (each range spans both thresholds and both loads):</span></p><figure class='table-figure'><table><thead><tr><th><span>Effective center-tip radius</span></th><th><span>IT16TT advantage over a conventional plug at the same gap</span></th></tr></thead><tbody><tr><td><span>0.2 mm (as designed)</span></td><td><span>12–24%</span></td></tr><tr><td><span>0.3 mm</span></td><td><span>7–14%</span></td></tr><tr><td><span>0.4 mm</span></td><td><span>5–10%</span></td></tr></tbody></table></figure><p><span>Doubling the effective tip radius from 0.2 to 0.4 mm removes about 58% of the modeled advantage. This is a what-if check, not a wear prediction. It simply shows that the benefit lasts only as long as the fine tip keeps its shape.</span></p><h3 id='an-illustrative-voltage-margin-example'><span>An Illustrative Voltage-Margin Example</span></h3><p><span>Another way to look at the results is to ask how much of an assumed voltage reserve remains under heavy load. I do not know the actual reserve of any particular L29, so the table uses three hypothetical starting points. Each starts with a conventional .060-inch plug as the reference.</span></p><figure class='table-figure'><table><thead><tr><th><span>Starting margin with a conventional .060&quot; plug</span></th><th><span>Conventional plug, .060&quot;</span></th><th><span>Conventional plug, .040&quot;</span></th><th><span>Conventional plug, .035&quot;</span></th><th><span>Denso IT16TT, .040&quot;</span></th></tr></thead><tbody><tr><td><span>10%</span></td><td><span>9%</span></td><td><span>31%</span></td><td><span>38%</span></td><td><span>42% (47% alternate)</span></td></tr><tr><td><span>25%</span></td><td><span>20%</span></td><td><span>39%</span></td><td><span>45%</span></td><td><span>49% (54% alternate)</span></td></tr><tr><td><span>50%</span></td><td><span>33%</span></td><td><span>49%</span></td><td><span>54%</span></td><td><span>57% (61% alternate)</span></td></tr></tbody></table></figure><p><img src="ignition-degradation-tolerance.png" alt="Grouped bar chart of the illustrative remaining available-voltage budget for conventional .060, .040, and .035 inch plugs and the Denso IT16TT at .040 inch, at starting margins of 10, 25, and 50 percent"></p><p><em><span>Share of the assumed available-voltage budget remaining above each modeled heavy-load requirement. Bars and the first numbers in the table use K = 18; whiskers and parenthetical values show the alternate Bruce-matched sensitivity result (it changes the .035-inch and .040-inch figures by less than a point). This is a relative illustration, not a predicted misfire threshold.</span></em></p><p><span>At the 25% starting point, the modeled reserve is about 20% with the conventional .060-inch plug, 39% at .040 inch, 45% at .035 inch, and 49% with the IT16TT. Notice that the IT16TT is only 3–4 percentage points ahead of the conventional .035-inch plug. This is a relative illustration, not a misfire prediction: it does not use measured coil output and it leaves out fixed losses such as the rotor gap.</span></p><h2 id='breakdown-voltage-is-not-the-whole-spark'><span>Breakdown Voltage Is Not the Whole Spark</span></h2><p><span>Firing voltage is the voltage needed to start the spark. It is not the same as the energy delivered afterward. Once the gap ionizes, its voltage drops and the coil continues feeding current through the spark for a short time—usually called spark duration or burn time.</span></p><p><span>That energy depends on the coil, primary current, dwell time, RPM, wiring, grounds, and ignition electronics. Higher RPM leaves less time to charge the coil, which is one reason a system can look fine at idle yet struggle under load.</span></p><p><span>The plug therefore asks the ignition system to do two jobs: break down the gap, then supply enough energy to establish a stable flame kernel. An easier-to-fire plug does not create more coil energy or guarantee a longer spark. It simply uses less of the system&#39;s available voltage to begin the event.</span></p><h2 id='heat-range-still-matters'><span>Heat Range Still Matters</span></h2><p><span>None of this changes the need for the correct heat range. Heat range describes how quickly the firing end passes heat into the cylinder head; it does not mean spark temperature or ignition strength. Too cold can encourage fouling, while too hot can raise the risk of pre-ignition and electrode damage.</span></p><p><span>Rather than trying to translate ACDelco and Denso heat-range numbers directly, I used Denso’s own cross-reference. Denso maps the R44LTS to several Denso heat-range-16 plugs, and the IT16TT is also heat range 16. Its 14 mm thread, 17.5 mm reach, tapered seat, and 16 mm hex also match the required basic dimensions.</span></p><p><span>The DensoProducts.com application catalog additionally lists DEN4713/IT16TT as compatible when the vehicle filter is set to the 1997 GMC K2500 Suburban, specifying a .040-inch gap and eight plugs. That is a retailer application guide rather than Denso’s corporate technical catalog, so I treat it as supporting application information rather than the sole proof of fit.</span></p><p><span>None of the geometry calculations determine heat range. A fine tip can place less metal beside the developing kernel without making the plug itself hotter or colder. As with any replacement plug, I would still inspect the IT16TTs after the truck’s hardest use—towing, long grades, hot weather, or sustained heavy load.</span></p><h2 id='choose-a-plug-designed-for-the-gap-you-want'><span>Choose a Plug Designed for the Gap You Want</span></h2><p><span>A .060-inch plug bent down to .040 inch is not necessarily the same as a plug designed for .040 inch. Moving the strap that far changes its position relative to the center electrode.</span></p><p><span>Fine-wire tips are durable in service but easy to damage while gapping. Since the IT16TT already comes close to the gap I want, I plan to check each one with a round wire gauge and otherwise leave it alone. Never pry against the center electrode, and follow the service manual and plug manufacturer&#39;s instructions for torque and anti-seize.</span></p><h2 id='what-if-you-want-to-stay-near-the-060-inch-spec'><span>What If You Want to Stay Near the .060-Inch Spec?</span></h2><p><span>Staying near .060 inch with a durable plug is also reasonable. One example is the ACDelco 41-979 double-platinum, which GM lists with a .060-inch gap, 17.5 mm reach, tapered seat, and 16 mm hex. Its double-platinum construction should help with wear and gap retention, but the published dimensions do not show an IT16TT-style 0.2 mm firing tip. I therefore do </span><strong><span>not</span></strong><span> assign it a modeled voltage reduction.</span></p><p><span>As a separate what-if calculation, an </span><strong><span>IT16TT-style</span></strong><span> fine tip at .060 inch comes out 18–30% below the conventional .060-inch reference. It lands within about 8% either way of a conventional .040-inch plug, but still needs 21–23% more voltage than the same fine tip at .040 inch. Compared with a conventional .035-inch plug, it needs about 14–19% more in the reference model and 1–5% more in the alternate. These numbers describe the hypothetical geometry—not the 41-979. Without actual tip measurements or direct testing, I cannot put a number on that plug&#39;s advantage.</span></p><h2 id='the-practical-takeaway'><span>The Practical Takeaway</span></h2><p><span>The more I looked at this, the less useful the usual “copper versus iridium” argument became. What matters is the complete package: the correct thread, reach, seat, protrusion, and heat range; a sensible gap; the firing-tip geometry; how well that geometry holds up; and how much ignition reserve remains when the engine is working hardest.</span></p><p><span>A good conventional plug at .035–.045 inch can be easy to fire and work extremely well. A properly chosen fine-wire plug can do the same while retaining its gap and firing-tip shape longer. On the other hand, a fine-wire plug with a very large gap can still place substantial demand on the ignition system. There really is no magic plug.</span></p><p><span>That is why the IT16TT makes sense to me for the L29. It has the correct basic dimensions and Denso heat range, and it is listed for the 1997 K2500 Suburban application in the DensoProducts.com catalog. It also comes in the gap range I want without requiring me to bend a .060-inch plug far from its original configuration.</span></p><p><span>I expect the truck to run much the same during normal driving as it would with a good set of R44LTS plugs. The model shows a 12–15% main-case advantage over a conventional plug at the same .040-inch gap, but only about 3–7% over a conventional plug at .035 inch. Those figures are estimates, not promises. If there is a useful real-world benefit, I expect it to appear as better long-term retention of the gap and firing shape, along with a modest amount of additional ignition reserve under load—not additional horsepower or a dramatic change in how the truck drives.</span></p><p><span>The cleanest test would be a secondary-voltage scope capture during a snap-throttle test, comparing a conventional plug at .035 inch with the IT16TT at .040 inch under the same conditions. Even one good before-and-after comparison would tell us more about the real difference than another round of modeling.</span></p><p><span>Electrical breakdown is also only the beginning. Mixture quality, turbulence, fuel preparation, residual exhaust, temperature, compression, and the energy delivered after the spark begins all affect whether a stable flame develops. A spark plug cannot fix weak fuel pressure, poor injectors, bad sensor inputs, low compression, or another underlying engine problem.</span></p><p><span>The same reasoning applies to any properly designed fine-wire plug selected with the engine, gap, heat range, and ignition system in mind.</span></p><h2 id='parts-quality-and-counterfeit-components'><span>Parts Quality and Counterfeit Components</span></h2><p><span>Where the plugs come from matters too. Counterfeit ignition and engine-management parts can look convincing, perform poorly, and create symptoms that send a good diagnosis in the wrong direction. I prefer buying from the manufacturer or an authorized seller whenever possible. Denso provides an official </span><a href='https://www.densoautoparts.com/where-to-buy-passenger/'><span>Where to Buy</span></a><span> page.</span></p><p>&nbsp;</p><h2 id='sources-and-model-references'><span>Sources and Model References</span></h2><ul><li><p><span>Denso&#39;s official </span><a href='https://www.denso.com/global/en/products-and-services/automotive-service-parts-and-accessories/plug/iridiumtt/productlist.html'><span>Iridium TT specifications</span></a><span> list the IT16TT&#39;s 14 mm thread, 17.5 mm reach, 16 mm hex, 1.0 mm nominal gap, tapered seat, and related dimensions.</span></p></li><li><p><span>Denso&#39;s </span><a href='https://am.denso.com/plug-global/products/iridiumtt/'><span>Iridium TT technical overview</span></a><span> describes the 0.4 mm iridium center, 0.7 mm needle-type platinum ground electrode, lower required-voltage principle, and reduced interference with flame growth.</span></p></li><li><p><span>Denso&#39;s official </span><a href='https://am.denso.com/search/plug-global/cross_ref/list.cgi?m=1&amp;p=0'><span>cross-reference search</span></a><span> lists R44LTS against T16EPR-U, IT16, and VT16, supporting the Denso heat-range-16 comparison.</span></p></li><li><p><span>The retailer </span><a href='https://www.densoproducts.com/denso-4713-it16tt-iridium-tt-spark-plug'><span>DensoProducts.com application listing</span></a><span> identifies DEN4713/IT16TT as compatible when its vehicle filter is set to the 1997 GMC K2500 Suburban and specifies a .040-inch gap with eight plugs required. Because this result depends on the selected vehicle filter and comes from a retailer application guide, I identify it separately from Denso’s corporate technical and cross-reference information.</span></p></li><li><p><span>Denso’s </span><a href='https://www.denso.com/global/en/products-and-services/automotive-service-parts-and-accessories/plug/basic/heatrange/'><span>heat-range explanation</span></a><span> explains how firing-end construction and the plug’s heat-transfer path determine operating temperature. The actual comparison between the R44LTS and Denso heat-range-16 plugs comes from Denso’s cross-reference search rather than from assuming that different manufacturers’ numbering systems are interchangeable.</span></p></li><li><p><span>GM bulletin </span><a href='https://downloads.innova.com/tsb-files/42000/2176126.pdf'><span>#03-06-04-060B</span></a><span>, </span><em><span>Information on New Spark Plugs and Gapping</span></em><span>, documents the later GM applications and the factory-set .040-inch iridium-plug gap discussed above.</span></p></li><li><p><span>GM&#39;s official </span><a href='https://parts.gmparts.com/product/acdelco-gm-original-equipment-double-platinum-spark-plug-19301810'><span>ACDelco 41-979 product page</span></a><span> identifies it as a double-platinum, tapered-seat plug with a 17.5 mm reach and 1.6 mm/.060-inch gap. Those data do not specify an IT16TT-style firing-tip radius.</span></p></li><li><p><span>Pischinger and Heywood, </span><a href='https://saemobilus.sae.org/papers/heat-losses-spark-plug-electrodes-affect-flame-kernel-development-si-engine-900021'><span>SAE 900021</span></a><span>, directly compared conventional and smaller electrodes and found reduced electrode heat loss and a wider stable operating regime with the smaller geometry. Lee and Boehler, </span><a href='https://saemobilus.sae.org/papers/flame-kernel-development-effects-engine-performance-various-spark-plug-electrode-configurations-2005-01-1133'><span>SAE 2005-01-1133</span></a><span>, and Alger et al., </span><a href='https://saemobilus.sae.org/papers/effect-sparkplug-design-initial-flame-kernel-development-sparkplug-performance-2006-01-0224'><span>SAE 2006-01-0224</span></a><span>, provide further experimental context for the effect of electrode geometry on early flame-kernel development, lean ignitability, and engine stability.</span></p></li><li><p><span>F. M. Bruce&#39;s </span><a href='https://doi.org/10.1049/ji-2.1947.0052'><span>1947 uniform-field spark-gap paper</span></a><span> is the source of the empirical relation used in Appendix A. It concerns carefully shaped uniform-field electrodes in air—not a running spark plug—which is why I use it only as a baseline trend calculation.</span></p></li><li><p><span>The </span><a href='https://chombo-discharge.github.io/Incept1D/modules/fielddistributions.html'><span>Incept1D field-distribution documentation</span></a><span> gives the hyperboloid-to-plane and confocal-hyperboloid field solutions used for the idealized geometry comparisons.</span></p></li><li><p><span>The Townsend constants and their limited reduced-field range are summarized in the </span><a href='https://chombo-discharge.github.io/Incept1D/examples/paschen.html'><span>Incept1D Paschen-law documentation</span></a><span>. The streamer threshold is the approximate Meek–Raether criterion discussed in Nijdam, Teunissen, and Ebert&#39;s review, </span><a href='https://doi.org/10.1088/1361-6595/abaa05'><em><span>The physics of streamer discharge phenomena</span></em></a><span>.</span></p></li></ul><h2 id='acknowledgment'><span>Acknowledgment</span></h2><p><span>I also want to give Road Trip—one of the real assets of the GMT400.com community—credit for the discussions that helped shape this write-up. His experience with older ignition analyzers, firing voltage under load, and marginal systems kept this from becoming purely theoretical. His approach—compare the weak example with the best one and keep going until the reason is understood—also helped me think in terms of ignition reserve instead of simply asking whether the system technically &quot;works.&quot;</span></p><p><span>Thanks for reading through my rambling. Hopefully this has been informative and useful to someone else going down the same rabbit hole. —Deepsiks</span></p><h2 id='appendix-how-the-numbers-were-calculated'><span>Appendix: How the Numbers Were Calculated</span></h2><p><span>This section is optional reading for anyone who wants to check the assumptions and arithmetic behind the article. The practical conclusions do not require following every equation, but the details are included so the calculations can be reviewed, challenged, or repeated.</span></p><h3 id='appendix-a-firing-voltage-vs-gap-the-first-table'><span>Appendix A: Firing Voltage vs. Gap (the First Table)</span></h3><p><span>The conventional-plug rows come from the empirical Bruce fit for the breakdown voltage of air between uniform-field electrodes:</span></p><p><strong><span>V_b ≈ 24.22 · δd + 6.08 · √(δd)</span></strong></p><p><span>Here V_b is the breakdown voltage in kilovolts, d is the gap in centimeters, and δ is the relative air density, which is the pressure in atmospheres scaled by 293 K divided by the gas temperature:</span></p><p><strong><span>δ = (P / 1.01325 bar) × (293 K / T)</span></strong></p><p><span>Higher pressure packs more gas molecules into the gap, and a hotter gas has fewer of them, so δ captures both effects in one number.</span></p><p><strong><span>Worked example: conventional plug at .040 inch (d = 0.1016 cm)</span></strong></p><p><em><span>Light load (5 bar, 600 K):</span></em></p><ul><li><p><span>δ = (5 / 1.01325) × (293 / 600) = 4.935 × 0.488 = 2.41</span></p></li><li><p><span>δd = 2.41 × 0.1016 = 0.245</span></p></li><li><p><span>V_b = 24.22 × 0.245 + 6.08 × √0.245 = 5.93 + 3.01 = </span><strong><span>8.9 kV</span></strong></p></li></ul><p><em><span>Heavy load (13 bar, 720 K):</span></em></p><ul><li><p><span>δ = (13 / 1.01325) × (293 / 720) = 12.83 × 0.407 = 5.22</span></p></li><li><p><span>δd = 5.22 × 0.1016 = 0.530</span></p></li><li><p><span>V_b = 24.22 × 0.530 + 6.08 × √0.530 = 12.85 + 4.43 = </span><strong><span>17.3 kV</span></strong></p></li></ul><p><span>Every other conventional row uses the same steps with a different gap. At .060 inch (d = 0.1524 cm), light load gives δd = 0.367 and V_b = 8.89 + 3.68 = </span><strong><span>12.6 kV</span></strong><span>, and heavy load gives δd = 0.796 and V_b = 19.27 + 5.42 = </span><strong><span>24.7 kV</span></strong><span>.</span></p><p><span>The two terms explain a pattern in the table. The first term is proportional to gap, but the square-root term grows more slowly, so voltage rises a little less than the gap does. Going from .035 to .060 inch makes the gap 71% larger, yet the required voltage rises only 57% under light load and 60% under heavy load.</span></p><p><strong><span>The IT16TT row.</span></strong><span> Because this formula assumes a uniform field, it knows nothing about electrode shape. For the IT16TT, I took the conventional .040-inch value from the formula and reduced it by the K = 18 reference-case advantage from the Appendix C breakdown model: about 12.0% at light load and 15.3% at heavy load. That gives about 7.9 kV (light) and 14.6 kV (heavy). Expressed as an effective gap in the same formula, those values correspond to about .034 inch under light load and .033 inch under heavy load, roughly 14% and 18% smaller than the real .040-inch gap. The reduction comes from a geometry model with its own uncertain assumptions (see the sensitivity ranges in the main text), so the row is an illustration of scale, not a measurement.</span></p><p><strong><span>Limits of this method.</span></strong><span> The Bruce fit was developed for carefully shaped uniform-field spark-gap electrodes in air near atmospheric conditions. Applying it at 5 to 13 bar is an extrapolation, and a real spark plug has a strongly nonuniform field in a hot combustion mixture rather than a uniform field in laboratory air. The load points are representative rather than measured. That is why I treat the table as showing trends in gap and load, not as predictions of what the L29 will actually require.</span></p><h3 id='appendix-b-field-concentration-at-the-tip'><span>Appendix B: Field Concentration at the Tip</span></h3><p><strong><span>Rough formula.</span></strong><span> A common point-to-plane (hyperboloid) approximation for the peak electric field at a tip is:</span></p><p><strong><span>E_max ≈ 2V / (r · ln(4d/r))</span></strong></p><p><span>Here V is the applied voltage, r is the tip radius, and d is the gap. Using the measured d = 1.02 mm:</span></p><ul><li><p><strong><span>Conventional (r = 1.25 mm):</span></strong><span> 4d/r = 4.08 / 1.25 = 3.26, so ln(4d/r) = 1.18. Then r · ln(4d/r) = 1.48 mm, and E_max / V ≈ 2 / 1.48 ≈ </span><strong><span>1.4 per mm</span></strong><span>.</span></p></li><li><p><strong><span>IT16TT (r = 0.2 mm):</span></strong><span> 4d/r = 4.08 / 0.2 = 20.4, so ln(4d/r) = 3.02. Then r · ln(4d/r) = 0.60 mm, and E_max / V ≈ 2 / 0.60 ≈ </span><strong><span>3.3 per mm</span></strong><span>.</span></p></li></ul><p><strong><span>Exact solution.</span></strong><span> For a hyperboloid tip facing a flat plane, the peak field can be written exactly. Define η₀ = √(d / (d + r)) and a = d / η₀. Then:</span></p><p><strong><span>E_max / V = 1 / ( a · atanh(η₀) · r/(d + r) )</span></strong></p><ul><li><p><strong><span>Conventional (r = 1.25 mm):</span></strong><span> E_max / V ≈ </span><strong><span>1.471 per mm</span></strong><span>.</span></p></li><li><p><strong><span>IT16TT (r = 0.2 mm):</span></strong><span> E_max / V ≈ </span><strong><span>3.520 per mm</span></strong><span>.</span></p></li></ul><p><span>The ratio of the two values is 3.520 / 1.471 ≈ </span><strong><span>2.39</span></strong><span>. The rough formula runs slightly low for both electrodes. This is exact only for the assumed hyperboloid-to-plane boundary geometry, not for the complete physical plug. The measured taper lengths do not enter this closed-form solution, and a full numerical model would also require the microscopic firing-edge curvature, ground-strap cross-section, ceramic dielectric geometry, shell location, and electrical boundary conditions.</span></p><h3 id='appendix-c-the-breakdown-model-for-the-plug-comparison'><span>Appendix C: The Breakdown Model for the Plug Comparison</span></h3><p><span>For anyone who wants to check the method: the field along the gap axis comes from the exact solution for a hyperboloid tip facing a plane (or a second, confocal hyperboloid for the Twin-Tip ground electrode). Gas ionization uses a Townsend-type coefficient for air, α/p = A·exp(−B·p/E) with A = 15 cm⁻¹·Torr⁻¹ and B = 365 V/(cm·Torr), with pressure scaled to a 293 K equivalent density. Breakdown is declared at the voltage where the ionization coefficient integrated along the gap axis reaches a threshold K.</span></p><p><span>The threshold is the least certain input, so I ran two values to bracket the answer. K = 18 is a typical streamer-breakdown criterion. K ≈ 1.3 is the value that makes a uniform-field gap reproduce the Bruce-equation baseline in the first table, so I refer to it as the </span><strong><span>Bruce-matched case</span></strong><span>. It is low enough that I do not consider it physically realistic, but it keeps the two parts of the article on the same numerical footing and is useful as a sensitivity check. One further caution: these ionization constants are normally quoted for field-to-pressure ratios of roughly 100–800 V/(cm·Torr), and in this model most of the gap sits below that range, with only the region right at the tip reaching it. That is another reason to trust the plug-to-plug percentages more than any individual voltage value.</span></p><p><strong><span>Three-way comparison values.</span></strong><span> Relative to a conventional .060-inch plug at the same load, the K = 18 model gives about 0.688 (light) and 0.687 (heavy) for a conventional .035-inch plug, 0.757 for a conventional .040-inch plug, and 0.667 (light) and 0.642 (heavy) for the IT16TT at .040 inch. The Bruce-matched case gives about 0.690 and 0.691 for the .035-inch plug and 0.594 and 0.579 for the IT16TT. These recomputed values agree with the published .040-inch and IT16TT ratios to within about 0.002. The IT16TT-versus-.035-inch comparison in the main text is the ratio of the IT16TT values to the .035-inch values: 0.667 / 0.688 = 0.97 and 0.642 / 0.687 = 0.93 in the reference case, and 0.594 / 0.690 = 0.86 and 0.579 / 0.691 = 0.84 in the alternate case.</span></p><h3 id='appendix-d-the-fine-wire-design-estimates'><span>Appendix D: The Fine-Wire Design Estimates</span></h3><h4 id='complete-kernel-geometry-results'><span>Complete Kernel-Geometry Results</span></h4><figure class='table-figure'><table><thead><tr><th><span>Kernel radius</span></th><th><span>IT16TT metal volume</span></th><th><span>Conventional volume</span></th><th><span>Less volume</span></th><th><span>IT16TT metal surface</span></th><th><span>Conventional surface</span></th><th><span>Less surface</span></th></tr></thead><tbody><tr><td><span>0.75 mm</span></td><td><span>0.104 mm³</span></td><td><span>0.242 mm³</span></td><td><span>56.9%</span></td><td><span>1.115 mm²</span></td><td><span>1.900 mm²</span></td><td><span>41.3%</span></td></tr><tr><td><span>1.00 mm</span></td><td><span>0.237 mm³</span></td><td><span>1.262 mm³</span></td><td><span>81.2%</span></td><td><span>2.039 mm²</span></td><td><span>4.649 mm²</span></td><td><span>56.1%</span></td></tr><tr><td><span>1.25 mm</span></td><td><span>0.371 mm³</span></td><td><span>3.452 mm³</span></td><td><span>89.3%</span></td><td><span>3.077 mm²</span></td><td><span>8.183 mm²</span></td><td><span>62.4%</span></td></tr><tr><td><span>1.50 mm</span></td><td><span>0.557 mm³</span></td><td><span>6.974 mm³</span></td><td><span>92.0%</span></td><td><span>4.291 mm²</span></td><td><span>13.667 mm²</span></td><td><span>68.6%</span></td></tr><tr><td><span>2.00 mm</span></td><td><span>2.712 mm³</span></td><td><span>16.181 mm³</span></td><td><span>83.2%</span></td><td><span>11.443 mm²</span></td><td><span>26.668 mm²</span></td><td><span>57.1%</span></td></tr><tr><td><span>2.50 mm</span></td><td><span>8.755 mm³</span></td><td><span>25.746 mm³</span></td><td><span>66.0%</span></td><td><span>21.333 mm²</span></td><td><span>47.488 mm²</span></td><td><span>55.1%</span></td></tr></tbody></table></figure><p><span>These values compare the measured IT16TT profile with the assumed same-gap conventional geometry described above. They are geometric volume and surface-area proxies, not calculated reductions in heat loss, thermal quenching, or combustion time.</span></p><p><strong><span>Three-dimensional kernel geometry.</span></strong><span> I modeled the developing kernel as a sphere of radius R centered midway across the measured 1.02 mm gap. The IT16TT center-electrode profile consists of a 0.69 mm-long cylinder with a 0.20 mm radius, a 0.40 mm-long frustum widening from 0.30 to 0.385 mm radius, and a 0.66 mm-long frustum widening from 0.385 to 1.025 mm radius. The ground needle is a 0.93 mm-long cylinder with a 0.35 mm radius. Its back face places the front of the ground strap 1.44 mm from the gap center. The strap&#39;s measured thickness converts to approximately 1.46 mm, placing its back face about 2.90 mm from the gap center. A separate side-profile scale gives a visible strap width of approximately 3.00 mm. Because the bend extends away behind the center electrode in that view, the unresolved direction is treated as long over the kernel region. The step from the 0.20 mm straight tip to the 0.30 mm start of the first taper is counted as an exposed annular shoulder.</span></p><p><span>For an axisymmetric electrode with radius r(z), the metal volume lying inside the spherical kernel is:</span></p><p><strong><span>V(R) = ∫ π · min[r(z)², R² − z²] dz</span></strong></p><p><span>The actual lateral metal surface inside the sphere is:</span></p><p><strong><span>A(R) = ∫ 2πr(z) · √[1 + (dr/dz)²] dz</span></strong></p><p><span>with only points satisfying z² + r(z)² ≤ R² included. The firing faces, the annular shoulder, and—once R exceeds 1.44 mm—the reached portion of the ground strap are added separately. The strap is represented as a rectangular section 3.00 mm wide and 1.46 mm thick, extending from 1.44 to 2.90 mm from the gap center and continuing along the hidden direction toward its bend. The circular footprint where the 0.7 mm ground needle joins the strap is subtracted from the strap&#39;s exposed front surface so that it is not counted twice. The sphere first reaches the strap&#39;s front face at R = 1.44 mm and its visible side edges at R = √(1.44² + 1.50²) ≈ </span><strong><span>2.08 mm</span></strong><span>. It does not reach the 2.90 mm back face anywhere in the plotted range.</span></p><p><span>For the conventional reference, one 1.25 mm-radius cylindrical center electrode begins at the center-electrode gap face. The opposing ground side is a rectangular strap using the same approximately 3.00 mm width and 1.46 mm thickness as the measured IT16TT strap, but with no projecting needle; its front face therefore begins directly at the conventional gap face. The hidden direction toward the bend is again treated as long over the modeled kernel region.</span></p><p><span>At R = 1.50 mm, the measured IT16TT profile contains </span><strong><span>0.557 mm³ of metal volume</span></strong><span> and </span><strong><span>4.291 mm² of exposed metal surface</span></strong><span> inside the sphere. The corrected same-gap conventional center-and-strap reference contains </span><strong><span>6.974 mm³</span></strong><span> and </span><strong><span>13.667 mm²</span></strong><span>. The IT16TT therefore has approximately </span><strong><span>92.0% less enclosed metal volume</span></strong><span> and </span><strong><span>68.6% less enclosed metal surface</span></strong><span> at that kernel radius.</span></p><p><span>For the cross-gap check, I moved the conventional center and strap firing faces from ±0.510 mm to ±0.762 mm, corresponding to a .060-inch gap, without changing the center radius or strap dimensions. At R = 1.00 mm, that wider-gap reference contains </span><strong><span>0.328 mm³</span></strong><span> of metal volume and </span><strong><span>2.635 mm²</span></strong><span> of surface, so the IT16TT at .040 inch contains </span><strong><span>27.7% less volume</span></strong><span> and </span><strong><span>22.6% less surface</span></strong><span>. At R = 1.50 mm, the wider-gap reference contains </span><strong><span>4.280 mm³</span></strong><span> and </span><strong><span>10.681 mm²</span></strong><span>, giving the IT16TT </span><strong><span>87.0% less volume</span></strong><span> and </span><strong><span>59.8% less surface</span></strong><span>. For R ≤ 0.762 mm, the centered sphere does not yet intersect the .060-inch reference electrodes, so no universal advantage is claimed for that earliest interval.</span></p><p><span>These are geometric obstruction and heat-transfer-area proxies, not calculated reductions in thermal quenching. The percentages change with kernel radius and begin to fall after the sphere reaches the IT16TT ground strap.</span></p><p><strong><span>Gap growth.</span></strong><span> The conventional-plug ranges combine two sources: the geometry model from Appendix C (conventional tip, 1.25 mm radius, facing a flat ground) and the uniform-field formula from Appendix A. The IT16TT values come from the Appendix C model alone, using the same two thresholds and both load conditions. The uniform-field formula rises faster with gap than the geometry model does, for the reason given earlier in the article.</span></p><p><strong><span>Tip shape.</span></strong><span> The same Appendix C model, with the IT16TT&#39;s center-tip radius set to 0.2, 0.3, and 0.4 mm, the ground tip fixed at 0.35 mm, and the gap at .040 inch, compared against the conventional plug. Both thresholds and both load conditions were run, and the 58% reduction in advantage at 0.4 mm held in all four cases.</span></p><p><strong><span>Illustrative voltage margin.</span></strong><span> Let R₆₀ be the heavy-load voltage requirement of a conventional .060-inch plug, and let the assumed available voltage be (1 + M) × R₆₀, where M is the starting margin. The share of that assumed budget remaining above a modeled requirement is 1 − (requirement ÷ available voltage). From the relative heavy-load results, a conventional .040-inch plug needs about 0.759 × R₆₀ in the K = 18 reference case, a conventional .035-inch plug needs about 0.687 × R₆₀, and the IT16TT needs about 0.643 × R₆₀. The alternate Bruce-matched sensitivity calibration gives about 0.762, 0.691, and 0.580, respectively. This calculation does not establish an actual misfire threshold.</span></p><p><em><span>Worked example, M = 25%:</span></em><span> available voltage = 1.25 × R₆₀.</span></p><ul><li><p><span>Conventional .060&quot;: 1 − 1.00 / 1.25 = </span><strong><span>20%</span></strong></p></li><li><p><span>Conventional .040&quot;: 1 − 0.759 / 1.25 = </span><strong><span>39%</span></strong></p></li><li><p><span>Conventional .035&quot;: 1 − 0.687 / 1.25 = </span><strong><span>45%</span></strong></p></li><li><p><span>IT16TT .040&quot;: 1 − 0.643 / 1.25 = </span><strong><span>49%</span></strong><span> (</span><strong><span>54%</span></strong><span> with the alternate 0.580 ratio)</span></p></li></ul><p><strong><span>Fine tip at .060 inch.</span></strong><span> The same Appendix C model, with an IT16TT-style tip (0.2 mm center radius, 0.35 mm ground radius) at a .060-inch gap (1.524 mm), compared four ways. Against a conventional plug at .060 inch, it requires 18–30% less voltage. Against the same fine tip at .040 inch, it requires 21–23% more. Against a conventional plug at .040 inch, it requires between 8% less and 8% more, depending on the threshold and load. Against a conventional plug at .035 inch, it requires about 14–19% more in the reference case and 1–5% more in the alternate case. Both thresholds and both load conditions were run.</span></p><hr /><h2 id='license'><span>License</span></h2><p><span>Except where otherwise noted, the original text, calculations, tables, and author-created graphics in this project are © 2026 </span><strong><span>rkolbi</span></strong><span> and are licensed under the </span><a href='https://creativecommons.org/licenses/by-sa/4.0/'><span>Creative Commons Attribution–ShareAlike 4.0 International License</span></a><span>.</span></p><p><span>You are free to copy, redistribute, adapt, and build upon this material, including for commercial purposes, provided that you:</span></p><ol start='' ><li><p><span>Give appropriate credit to </span><strong><span>rkolbi</span></strong><span>.</span></p></li><li><p><span>Link back to the original project at </span><a href='https://github.com/rkolbi/Spark_Plugs'><span>https://github.com/rkolbi/Spark_Plugs</span></a><span>.</span></p></li><li><p><span>Identify any changes you made.</span></p></li><li><p><span>Distribute modified versions under the same CC BY-SA 4.0 license or a compatible license.</span></p></li></ol><p><span>If you correct, expand, or otherwise improve this work, I strongly encourage you to submit the improvement to the original repository through a pull request or issue so it can be reviewed and incorporated for everyone’s benefit.</span></p><p><span>Third-party product photographs, service-manual excerpts, trademarks, and other externally sourced material remain the property of their respective owners and are not covered by this license unless specifically stated otherwise.</span></p></div></div>
+
+<script>(function(){function e(e,n,i){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var t=e.target;t&&t!=this;t=t.parentNode)if(t.matches(n)){!1===i.call(t,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)}var t=document.body.parentElement,i=[],r=null,o=document.body.classList.contains("typora-export-collapse-outline");function a(){return t.scrollTop}e("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),u(),!1}),e("click",".outline-item",function(e){var t=this.querySelector(".outline-label");location.hash=t.getAttribute("href"),o&&((t=this.closest(".outline-item-wrapper").classList).contains("outline-item-open")||t.add("outline-item-open"),d(),t.add("outline-item-active"))});function s(){var e=a();r=null;for(var t=0;t<i.length&&i[t][1]-e<60;t++)r=i[t]}function n(){c=setTimeout(function(){var n;i=[],n=a(),document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(e=>{var t=e.getAttribute("id");i.push([t,n+e.getBoundingClientRect().y])}),s(),u()},300)}var l,c,d=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},u=function(){if(r&&(d(),t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(r[0]):r[0])+'"]')))if(o){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var t,n=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");n;)n=(t=n).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")};window.addEventListener("scroll",function(e){l&&clearTimeout(l),l=setTimeout(function(){s(),u()},300)});window.addEventListener("resize",function(e){c&&clearTimeout(c),n()}),n()})();</script></body>
+</html>
