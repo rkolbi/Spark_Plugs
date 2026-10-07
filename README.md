@@ -48,7 +48,7 @@ What started as a comparison between two spark plugs turned into a much deeper l
 
 I first looked at the ACDelco R44LTS as a conventional tighter-gap option. Then I found the Denso IT16TT, which comes near .040 inch and uses a 0.4 mm iridium center tip and a 0.7 mm platinum ground tip. At that point, the question became less about brand names and more about what the gap and electrode shape ask the ignition system to do.
 
-The basic dimensions match: both use a 14 mm thread, 17.5 mm reach, tapered seat, and essentially the same 5/8-inch/16 mm hex. Heat-range numbers do not translate directly between brands, so I checked Denso's own cross-reference. Denso maps the R44LTS to several heat-range-16 plugs, and the IT16TT is also heat range 16. DensoProducts.com additionally lists DEN4713/IT16TT for the 1997 K2500 Suburban, with a .040-inch gap and eight plugs.
+The basic dimensions match: both use a 14 mm thread, 17.5 mm reach, tapered seat, and essentially the same 5/8-inch/16 mm hex. Heat-range numbers do not translate directly between brands, so I checked Denso's own cross-reference. Denso maps the R44LTS to several heat-range-16 plugs, and the IT16TT is also heat range 16. The DensoProducts.com retailer application guide also lists DEN4713/IT16TT as compatible when its vehicle filter is set to the 1997 K2500 Suburban, specifying a .040-inch gap and eight plugs.
 
 ## Gap Is Only Part of the Story
 
@@ -200,8 +200,6 @@ The precious metals matter mainly because they help the plug keep the gap and fi
 
 The conventional-plug range comes from the two calculations used earlier. The IT16TT values come from the fine-tip model. I do not have wear-rate data showing how quickly either plug reaches these gaps, so the figures show the cost of gap growth—not the service life of either plug.
 
-**Tip shape.**
-
 **Tip shape.** The IT16TT's advantage depends on the tip staying small. Holding the gap at .040 inch and the ground tip fixed, here is how the modeled advantage over a conventional plug changes as the effective radius of the center tip grows (each range spans both thresholds and both loads):
 
 | Effective center-tip radius | IT16TT advantage over a conventional plug at the same gap |
@@ -214,19 +212,19 @@ Doubling the effective tip radius from 0.2 to 0.4 mm removes about 58% of the mo
 
 ### An Illustrative Voltage-Margin Example
 
-Another way to look at the results is to ask how much of an assumed voltage reserve remains under heavy load. I do not know the actual reserve of any particular L29, so the table uses three hypothetical starting points. Each starts with a regular .060-inch plug as the reference.
+Another way to look at the results is to ask how much of an assumed voltage reserve remains under heavy load. I do not know the actual reserve of any particular L29, so the table uses three hypothetical starting points. Each starts with a conventional .060-inch plug as the reference.
 
-| Starting margin with a regular .060" plug | Conventional plug, .060" | Conventional plug, .040" | Conventional plug, .035" | Denso IT16TT, .040" |
+| Starting margin with a conventional .060" plug | Conventional plug, .060" | Conventional plug, .040" | Conventional plug, .035" | Denso IT16TT, .040" |
 | --- | --- | --- | --- | --- |
 | 10% | 9% | 31% | 38% | 42% (47% alternate) |
 | 25% | 20% | 39% | 45% | 49% (54% alternate) |
 | 50% | 33% | 49% | 54% | 57% (61% alternate) |
 
-![Grouped bar chart of the illustrative remaining available-voltage budget for regular .060, .040, and .035 inch plugs and the Denso IT16TT at .040 inch, at starting margins of 10, 25, and 50 percent](ignition-degradation-tolerance.png)
+![Grouped bar chart of the illustrative remaining available-voltage budget for conventional .060, .040, and .035 inch plugs and the Denso IT16TT at .040 inch, at starting margins of 10, 25, and 50 percent](ignition-degradation-tolerance.png)
 
 *Share of the assumed available-voltage budget remaining above each modeled heavy-load requirement. Bars and the first numbers in the table use K = 18; whiskers and parenthetical values show the alternate Bruce-matched sensitivity result (it changes the .035-inch and .040-inch figures by less than a point). This is a relative illustration, not a predicted misfire threshold.*
 
-At the 25% starting point, the modeled reserve is about 20% with the regular .060-inch plug, 39% at .040 inch, 45% at .035 inch, and 49% with the IT16TT. Notice that the IT16TT is only 3–4 percentage points ahead of the conventional .035-inch plug. This is a relative illustration, not a misfire prediction: it does not use measured coil output and it leaves out fixed losses such as the rotor gap.
+At the 25% starting point, the modeled reserve is about 20% with the conventional .060-inch plug, 39% at .040 inch, 45% at .035 inch, and 49% with the IT16TT. Notice that the IT16TT is only 3–4 percentage points ahead of the conventional .035-inch plug. This is a relative illustration, not a misfire prediction: it does not use measured coil output and it leaves out fixed losses such as the rotor gap.
 
 ## Breakdown Voltage Is Not the Whole Spark
 
@@ -256,7 +254,7 @@ Fine-wire tips are durable in service but easy to damage while gapping. Since th
 
 Staying near .060 inch with a durable plug is also reasonable. One example is the ACDelco 41-979 double-platinum, which GM lists with a .060-inch gap, 17.5 mm reach, tapered seat, and 16 mm hex. Its double-platinum construction should help with wear and gap retention, but the published dimensions do not show an IT16TT-style 0.2 mm firing tip. I therefore do **not** assign it a modeled voltage reduction.
 
-As a separate what-if calculation, an **IT16TT-style** fine tip at .060 inch comes out 18–30% below the regular .060-inch reference. It lands within about 8% either way of a regular .040-inch plug, but still needs 21–23% more voltage than the same fine tip at .040 inch. Compared with a regular .035-inch plug, it needs about 14–19% more in the reference model and 1–5% more in the alternate. These numbers describe the hypothetical geometry—not the 41-979. Without actual tip measurements or direct testing, I cannot put a number on that plug's advantage.
+As a separate what-if calculation, an **IT16TT-style** fine tip at .060 inch comes out 18–30% below the conventional .060-inch reference. It lands within about 8% either way of a conventional .040-inch plug, but still needs 21–23% more voltage than the same fine tip at .040 inch. Compared with a conventional .035-inch plug, it needs about 14–19% more in the reference model and 1–5% more in the alternate. These numbers describe the hypothetical geometry—not the 41-979. Without actual tip measurements or direct testing, I cannot put a number on that plug's advantage.
 
 ## The Practical Takeaway
 
@@ -296,9 +294,9 @@ Where the plugs come from matters too. Counterfeit ignition and engine-managemen
 
 ## Acknowledgment
 
-I also want to give Road Trip credit for the discussion that helped shape this write-up. His experience with older ignition analyzers, firing voltage under load, and marginal systems kept this from becoming purely theoretical. His approach—compare the weak example with the best one and keep going until the reason is understood—also helped me think in terms of ignition reserve instead of simply asking whether the system technically "works."
+I also want to give Road Trip—one of the real assets of the GMT400.com community—credit for the discussions that helped shape this write-up. His experience with older ignition analyzers, firing voltage under load, and marginal systems kept this from becoming purely theoretical. His approach—compare the weak example with the best one and keep going until the reason is understood—also helped me think in terms of ignition reserve instead of simply asking whether the system technically "works."
 
-Thanks for reading through my rambling. Hopefully this has been informative and useful to someone else going down the same rabbit hole.  —Deepsiks
+Thanks for reading through my rambling. Hopefully this has been informative and useful to someone else going down the same rabbit hole. —Deepsiks
 
 ## Appendix: How the Numbers Were Calculated
 
@@ -366,7 +364,7 @@ The threshold is the least certain input, so I ran two values to bracket the ans
 
 ### Appendix D: The Fine-Wire Design Estimates
 
-### Complete Kernel-Geometry Results
+#### Complete Kernel-Geometry Results
 
 | Kernel radius | IT16TT metal volume | Conventional volume | Less volume | IT16TT metal surface | Conventional surface | Less surface |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -399,16 +397,33 @@ For the cross-gap check, I moved the conventional center and strap firing faces 
 
 These are geometric obstruction and heat-transfer-area proxies, not calculated reductions in thermal quenching. The percentages change with kernel radius and begin to fall after the sphere reaches the IT16TT ground strap.
 
-**Gap growth.** The regular-plug ranges combine two sources: the geometry model from Appendix C (conventional tip, 1.25 mm radius, facing a flat ground) and the uniform-field formula from Appendix A. The IT16TT values come from the Appendix C model alone, using the same two thresholds and both load conditions. The uniform-field formula rises faster with gap than the geometry model does, for the reason given earlier in the article.
+**Gap growth.** The conventional-plug ranges combine two sources: the geometry model from Appendix C (conventional tip, 1.25 mm radius, facing a flat ground) and the uniform-field formula from Appendix A. The IT16TT values come from the Appendix C model alone, using the same two thresholds and both load conditions. The uniform-field formula rises faster with gap than the geometry model does, for the reason given earlier in the article.
 
 **Tip shape.** The same Appendix C model, with the IT16TT's center-tip radius set to 0.2, 0.3, and 0.4 mm, the ground tip fixed at 0.35 mm, and the gap at .040 inch, compared against the conventional plug. Both thresholds and both load conditions were run, and the 58% reduction in advantage at 0.4 mm held in all four cases.
 
-**Illustrative voltage margin.** Let R₆₀ be the heavy-load voltage requirement of a regular .060-inch plug, and let the assumed available voltage be (1 + M) × R₆₀, where M is the starting margin. The share of that assumed budget remaining above a modeled requirement is 1 − (requirement ÷ available voltage). From the relative heavy-load results, a regular .040-inch plug needs about 0.759 × R₆₀ in the K = 18 reference case, a regular .035-inch plug needs about 0.687 × R₆₀, and the IT16TT needs about 0.643 × R₆₀. The alternate Bruce-matched sensitivity calibration gives about 0.762, 0.691, and 0.580, respectively. This calculation does not establish an actual misfire threshold.
+**Illustrative voltage margin.** Let R₆₀ be the heavy-load voltage requirement of a conventional .060-inch plug, and let the assumed available voltage be (1 + M) × R₆₀, where M is the starting margin. The share of that assumed budget remaining above a modeled requirement is 1 − (requirement ÷ available voltage). From the relative heavy-load results, a conventional .040-inch plug needs about 0.759 × R₆₀ in the K = 18 reference case, a conventional .035-inch plug needs about 0.687 × R₆₀, and the IT16TT needs about 0.643 × R₆₀. The alternate Bruce-matched sensitivity calibration gives about 0.762, 0.691, and 0.580, respectively. This calculation does not establish an actual misfire threshold.
 
 *Worked example, M = 25%:* available voltage = 1.25 × R₆₀.
-- Regular .060": 1 − 1.00 / 1.25 = **20%**
-- Regular .040": 1 − 0.759 / 1.25 = **39%**
-- Regular .035": 1 − 0.687 / 1.25 = **45%**
+- Conventional .060": 1 − 1.00 / 1.25 = **20%**
+- Conventional .040": 1 − 0.759 / 1.25 = **39%**
+- Conventional .035": 1 − 0.687 / 1.25 = **45%**
 - IT16TT .040": 1 − 0.643 / 1.25 = **49%** (**54%** with the alternate 0.580 ratio)
 
 **Fine tip at .060 inch.** The same Appendix C model, with an IT16TT-style tip (0.2 mm center radius, 0.35 mm ground radius) at a .060-inch gap (1.524 mm), compared four ways. Against a conventional plug at .060 inch, it requires 18–30% less voltage. Against the same fine tip at .040 inch, it requires 21–23% more. Against a conventional plug at .040 inch, it requires between 8% less and 8% more, depending on the threshold and load. Against a conventional plug at .035 inch, it requires about 14–19% more in the reference case and 1–5% more in the alternate case. Both thresholds and both load conditions were run.
+
+-----
+
+## License
+
+Except where otherwise noted, the original text, calculations, tables, and author-created graphics in this project are © 2026 **rkolbi** and are licensed under the [Creative Commons Attribution–ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
+
+You are free to copy, redistribute, adapt, and build upon this material, including for commercial purposes, provided that you:
+
+1. Give appropriate credit to **rkolbi**.
+2. Link back to the original project at [https://github.com/rkolbi/Spark_Plugs](https://github.com/rkolbi/Spark_Plugs).
+3. Identify any changes you made.
+4. Distribute modified versions under the same CC BY-SA 4.0 license or a compatible license.
+
+If you correct, expand, or otherwise improve this work, I strongly encourage you to submit the improvement to the original repository through a pull request or issue so it can be reviewed and incorporated for everyone’s benefit.
+
+Third-party product photographs, service-manual excerpts, trademarks, and other externally sourced material remain the property of their respective owners and are not covered by this license unless specifically stated otherwise.
