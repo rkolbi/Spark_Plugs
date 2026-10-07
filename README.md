@@ -4,7 +4,9 @@
 
 ### Key takeaways
 
-I compared conventional plugs gapped from .035 to .060 inch along with the Denso IT16TT at .040 inch. I ran the firing-voltage comparison two ways because any mathematical spark-breakdown model needs an assumed point at which the electrical discharge becomes a self-sustaining spark. My main calculation, called **K = 18**, uses a commonly accepted threshold for that transition and provides the figures shown first. As a cross-check, I also adjusted the model so that a simple, uniform air gap agrees with an older laboratory equation, known here as the **Bruce-matched case**. That second calculation produces the larger figures shown in parentheses and helps show how sensitive the answer is to the model settings, so it should not be treated as the expected result. Appendix C explains both models for anyone who wants the technical details. None of these figures are ignition-scope measurements from an L29.
+Here is the short version. I compared conventional plugs gapped from .035 to .060 inch with the Denso IT16TT at .040 inch. The calculations were run two ways because any mathematical spark-breakdown model needs an assumed point at which the electrical discharge becomes a self-sustaining spark.
+
+The main calculation, called **K = 18**, uses a commonly accepted threshold and provides the figures shown first. I also ran a second calculation adjusted so that a simple, uniform air gap agrees with an older laboratory equation. That is called the **Bruce-matched case**, and it produces the larger figures shown in parentheses. I include it to show how sensitive the results are to the model settings, not because I consider it the expected result. Appendix C explains both methods for anyone interested in the technical details. None of these figures are ignition-scope measurements from an L29.
 
 | Modeled firing-voltage requirement | Cruising / light load | Heavy load |
 | --- | --- | --- |
@@ -15,14 +17,14 @@ I compared conventional plugs gapped from .035 to .060 inch along with the Denso
 - **The starting point matters:** The factory manual lists both .035 and .060 inch for the L29, and that changes the comparison. Against a conventional plug at .060 inch, the IT16TT at .040 inch shows a large modeled reduction. Most of that comes from the smaller gap; a conventional plug at .035 inch already needs about 31% less voltage than one at .060 inch. Against that .035-inch plug, the IT16TT's modeled advantage is only about 3–7%.
   - **Gap:** Closing a conventional plug from .060 to .040 inch lowers the calculated requirement by about 24% in the geometry model and 29–30% in the simpler uniform-field calculation. Opening a conventional plug from .035 to .040 inch adds about 10%.
   - **Electrode design:** At the same .040-inch gap, the main model puts the IT16TT about 12% lower at light load and 15% lower under heavy load. That answer depends heavily on the assumed tip shapes; broader sensitivity runs span roughly 4–35%. The separate field calculation helps explain the trend, but its 1.75-times and 2.39-times field ratios are not voltage-saving percentages.
-- **Reserve and durability:** A plug that takes less voltage to fire leaves more of the existing ignition capability available for hard acceleration, towing, high cylinder pressure, moisture, wear, and aging secondary parts. It does not create more coil energy or engine power. The fine tips also put less metal around much of the developing flame kernel in the 3D model. Just as important, the precious-metal tips should hold their shape and gap longer. The first .005 inch of modeled gap growth adds about 9–11% to a regular plug's voltage demand, compared with roughly 6–7% for the IT16TT.
+- **Reserve and durability:** A plug that requires less firing voltage leaves more of the ignition system’s existing capability in reserve for hard acceleration, towing, high cylinder pressure, moisture, wear, and aging secondary-ignition parts. It does not create additional coil energy or engine power. The 3D model also shows that the IT16TT’s fine tips place less metal around much of the developing flame kernel. Just as important, the precious-metal tips should retain their shape and gap longer. The first .005 inch of modeled gap growth adds about 9–11% to a conventional plug’s voltage demand, compared with roughly 6–7% for the IT16TT.
 - **GM precedent:** GM TSB #03-06-04-060B documents GM moving a number of later V8s to an iridium-tip plug with a factory .040-inch gap, and it attributes the smaller gap to the different firing-tip design. It does not cover the L29, but it shows GM itself pairing a fine-wire tip with a tighter gap instead of treating .060 inch as a given.
 - **L29 factory-spec discrepancy:** The *1997 Chevrolet Light Duty CK Truck Service Manual, Volume 1-1* lists .035 inch in the engine-mechanical section and “.60” without units in the ignition section, which I read as .060 inch. The ignition page points to Section 0B, and the underhood emissions label may settle the question. Until then, I show both baselines instead of choosing the one that makes the result look best.
 - **Limits:** All performance numbers here are modeled estimates. No plug can fix a worn cap, rotor, wires, poor fuel delivery, or another underlying problem.
 
 ### What this means for my L29
 
-For me, the IT16TT at its roughly .040-inch factory gap is a well-supported choice based on fit and heat range. Compared with a conventional plug at .060 inch, the model shows a substantial reduction in firing-voltage demand, which should leave more ignition-system reserve under heavy load. Compared with a conventional plug at .035 inch, the calculated advantage is a bit smaller—about 3–7%.
+For me, the IT16TT at its roughly .040-inch factory gap is a well-supported choice based on fit and heat range. Compared with a conventional plug at .060 inch, the model shows a substantial reduction in firing-voltage demand, which should leave more ignition-system reserve under heavy load. Compared with a conventional plug at .035 inch, the calculated advantage is much smaller—about 3–7%.
 
 The fine-wire Twin-Tip geometry also places less metal around the developing flame kernel and should retain its gap and firing-tip shape longer than a conventional nickel plug. That does not prove that it produces the same kernel as a conventional plug with a wider gap, but it does suggest that the smaller .040-inch gap does not automatically mean poorer early flame development in this case.
 
@@ -34,7 +36,9 @@ With all that said, I am not expecting a “magic” plug or additional horsepow
 
 ## The Deeper Reading and Technical Discussion
 
-What started as a comparison between two spark plugs turned into a much deeper look at gap, electrode design, cylinder pressure, temperature, and ignition-system condition. The L29 is especially interesting because the 1997 service manual itself gives two different gap figures: .035 inch in the engine-mechanical section and what appears to be .060 inch in the ignition section. That discrepancy is what sent me down this rabbit hole.
+That is the practical answer. What follows is the deeper explanation of how I got there, including the assumptions, measurements, calculations, and limitations behind the summary above.
+
+What started as a comparison between two spark plugs turned into a much deeper look at gap, electrode design, cylinder pressure, temperature, and ignition-system condition. The L29 is especially interesting because the 1997 service manual itself gives two different gap figures: .035 inch in the engine-mechanical section and what appears to be .060 inch in the ignition-system section. That discrepancy is what sent me down this rabbit hole.
 
 ![1997 Chevrolet Light Duty CK Truck Service Manual, Volume 1-1, engine-mechanical specifications](conflicting-gaps-1.png)
 
@@ -58,23 +62,23 @@ To keep the math from turning into one big apples-to-oranges comparison, I use t
 2. **The idealized field and breakdown models** explore how assumed tip geometry might change firing-voltage demand. Their percentages are model-dependent and are not measurements of the IT16TT or the L29.
 3. **The measured-profile geometry calculation** compares how much electrode metal volume and exposed surface lie near an idealized growing flame kernel. It does not calculate firing voltage, heat transfer, or combustion improvement.
 
-| Plug / Gap          | Light Load | Heavy Load | Light Load, % of .035 LL | Heavy Load, % of .035 LL |
-| ------------------- | ---------- | ---------- | ------------------------ | ------------------------ |
-| Conventional .035"  | ~8.0 kV    | ~15.4 kV   | 100%                     | 192%                     |
-| Denso IT16TT ~.040" | ~7.9 kV    | ~14.6 kV   | 98%                      | 183%                     |
-| Conventional .040"  | ~8.9 kV    | ~17.3 kV   | 112%                     | 216%                     |
-| Conventional .045"  | ~9.9 kV    | ~19.2 kV   | 123%                     | 239%                     |
-| Conventional .050"  | ~10.8 kV   | ~21.0 kV   | 135%                     | 263%                     |
-| Conventional .055"  | ~11.7 kV   | ~22.9 kV   | 146%                     | 286%                     |
-| Conventional .060"  | ~12.6 kV   | ~24.7 kV   | 157%                     | 309%                     |
+| Plug and gap | Light load | Heavy load |
+| --- | ---: | ---: |
+| Conventional plug at .035" | ~8.0 kV | ~15.4 kV |
+| Denso IT16TT at ~.040" | ~7.9 kV | ~14.6 kV |
+| Conventional plug at .040" | ~8.9 kV | ~17.3 kV |
+| Conventional plug at .045" | ~9.9 kV | ~19.2 kV |
+| Conventional plug at .050" | ~10.8 kV | ~21.0 kV |
+| Conventional plug at .055" | ~11.7 kV | ~22.9 kV |
+| Conventional plug at .060" | ~12.6 kV | ~24.7 kV |
 
-*The percentage columns use the conventional .035-inch light-load value as 100%. The IT16TT row is different from the others: it applies the main model's fine-tip reduction to the conventional .040-inch result. It is an estimate of scale, not a predicted L29 firing voltage. Percentages use the unrounded values.*
+*The conventional-plug rows come from the uniform-field gap calculation. The IT16TT row starts with the conventional .040-inch result and applies the fine-tip adjustment from the separate breakdown model. These are calculated comparisons under representative conditions, not predicted firing voltages for my L29.*
 
 ![Modeled firing-voltage requirement versus plug gap for a conventional plug under light and heavy load, with the Denso IT16TT shown at about .040 inch](firing-voltage-vs-gap.png)
 
 *Modeled firing-voltage requirement versus gap, from the table above. The stars show the IT16TT at about .040 inch under the same two load conditions.*
 
-The useful part is the trend. Opening a conventional gap from .035 to .060 inch raises the modeled requirement by roughly 57–60%, and higher cylinder pressure raises it again. The IT16TT estimate falls only slightly below the conventional .035-inch row because its fine-tip advantage is partly offset by its slightly wider .040-inch gap.
+The important part is the trend. Opening a conventional gap from .035 to .060 inch raises the modeled firing-voltage requirement by roughly 57–60%, and increasing cylinder pressure raises it again. The IT16TT estimate falls only slightly below the conventional .035-inch result because its fine-tip advantage is partly offset by its slightly wider .040-inch gap.
 
 Road Trip's experience with a Sun 1115 engine analyzer helped connect this to the real world. He described firing voltage jumping during a snap-throttle test, then settling once the engine reached a steady rpm. He also saw marginal systems that ran fine at idle but lost the spark when cylinder pressure rose. That is the same basic physics showing up on a shop scope, and it is why I keep coming back to ignition reserve rather than gap alone.
 
@@ -121,25 +125,23 @@ At 10 kV, the flat-ground calculation gives about 14.7 kV/mm at the conventional
 
 ### Modeled Comparison: IT16TT vs. a Conventional Plug
 
-For the same-gap comparison, I kept the gas, gap, load, and breakdown settings the same and changed only the assumed electrode geometry:
+For this comparison, I kept the gas conditions, load, and gap the same and changed only the assumed electrode geometry:
 
-- **Conventional plug:** 1.25 mm center-electrode tip radius facing a flat ground strap.
-- **Denso IT16TT:** 0.2 mm center-electrode tip radius facing a 0.35 mm-radius ground tip (the 0.7 mm Twin-Tip platinum electrode).
+- **Conventional plug:** An assumed 1.25 mm center-electrode radius facing a flat ground strap.
+- **Denso IT16TT:** A 0.20 mm center-electrode radius facing the 0.35 mm-radius ground tip created by its 0.70 mm Twin-Tip electrode.
 
-Because the breakdown threshold is uncertain, I ran the model two ways. K = 18 is the main result. The alternate Bruce-matched case is only a sensitivity bound. I focus on percentage differences because they are more useful than pretending any one modeled voltage is exact.
-
-Here is the plain-English version. “Regular plug” means the assumed conventional large-electrode reference. A larger percentage means less required voltage. The first number is the main model; the number in parentheses is the alternate sensitivity result.
+The exact point at which an electrical discharge becomes a self-sustaining spark is uncertain, so I ran the calculation with two different thresholds. The **K = 18** result is the main calculation. The **Bruce-matched case** is a sensitivity check that produces larger advantages but uses a much lower threshold, so I do not treat it as equally realistic. The first number shown below comes from the main model; the number in parentheses comes from the sensitivity check.
 
 | What changes | Cruising / light load | Towing / hard acceleration |
-| --- | --- | --- |
-| Regular plug at .035" → IT16TT at .040" (both the plug and a slightly wider gap) | 3% less (14%) | 7% less (16%) |
-| Regular plug at .040" → IT16TT at .040" (the plug design alone) | 12% less (22%) | 15% less (24%) |
-| Regular plug at .060" → IT16TT at .040" (both changes together) | 33% less (41%) | 36% less (42%) |
-| Regular plug, .060" → .035" (the gap alone) | about 31% less | about 31% less |
-| Regular plug, .060" → .040" (the gap alone) | about 24% less | about 24% less |
-| Regular plug, .035" → .040" (the gap alone, wider) | about 10% more | about 10% more |
+| --- | ---: | ---: |
+| Conventional .035" → IT16TT .040" | 3% less (14%) | 7% less (16%) |
+| Conventional .040" → IT16TT .040" | 12% less (22%) | 15% less (24%) |
+| Conventional .060" → IT16TT .040" | 33% less (41%) | 36% less (42%) |
+| Conventional .060" → .035" | about 31% less | about 31% less |
+| Conventional .060" → .040" | about 24% less | about 24% less |
+| Conventional .035" → .040" | about 10% more | about 10% more |
 
-I keep the alternate case visible because it shows model sensitivity, but I do not consider it equally physical.
+The first comparison is the most relevant if the L29’s intended conventional-plug gap is .035 inch. The third shows what happens when the IT16TT at .040 inch is compared with the .060-inch specification found elsewhere in the service manual. Keeping both references visible avoids choosing only the baseline that produces the largest result.
 
 ![Grouped bar chart of modeled spark-voltage requirement on a shared light-load baseline for the conventional .060, .040, and .035 inch plugs and the IT16TT at .040 inch: bars show the K equals 18 reference calculation and whiskers extend to the alternate Bruce-matched sensitivity calibration](modeled-voltage-reduction.png)
 
@@ -149,17 +151,17 @@ In the main model, the IT16TT at .040 inch behaves roughly like an assumed conve
 
 Compared with a conventional .060-inch plug, the IT16TT at .040 inch shows a 33–36% reduction, with about 24 percentage points coming from the smaller gap. Compared with a conventional .035-inch plug, the net difference is only 3–7%. The simpler uniform-field equation gives a somewhat larger 29–30% gap-only reduction from .060 to .040 because it responds to gap differently from the curved-tip model.
 
-Three limitations are worth stating plainly:
+Four limitations are worth stating plainly:
 
-1. **Tip shape is the weakest input.** Changing the assumed radii moves the same-gap advantage through a much wider 4–35% span. A real conventional electrode has a sharper edge than the 1.25 mm face radius used here, which could push the IT16TT advantage toward the low end.
-2. **The small ground tip does not simply add more field.** It lowers the center-tip peak compared with a flat ground and creates a second, weaker peak of its own. Its clearer benefits may be reduced kernel interference and better wear resistance.
-3. **A real cylinder is far more complicated.** The model leaves out turbulence, mixture, electrode temperature, and polarity, and the load points are representative. Only an ignition-scope test on the truck can show the real difference.
+1. **Tip shape is the weakest input.** Changing the assumed radii moves the same-gap advantage through a much wider range of roughly 4–35%. A real conventional electrode has sharper edges than the 1.25 mm face radius used in the simplified model, which could move the IT16TT advantage toward the lower end.
 
-### Polarity, Temperature, and the Center Electrode
+2. **The 2.39-times field ratio is an idealized result.** It describes the IT16TT center tip facing a flat ground. When the actual Twin-Tip ground needle is included, the center-tip comparison falls to about 1.75 times while a second, weaker field peak forms at the ground tip. Neither number is a firing-voltage-saving percentage.
 
-Polarity and electrode temperature can affect breakdown, but I have not measured either one on this L29. The clearer point is geometric: the small center tip concentrates the field, while the small ground tip leaves less metal around the initial spark. The model cannot divide the credit precisely between the two.
+3. **A real cylinder is much more complicated.** The model does not reproduce mixture motion, turbulence, fuel composition, residual exhaust, electrode temperature, combustion-chamber geometry, or every part of the electrical path. The load points are representative conditions, not measurements from my engine.
 
-Iridium and platinum matter mainly because they resist heat and erosion well enough to keep those tiny shapes in service. The geometry provides the possible electrical and flame-kernel advantages; the precious metals make that geometry durable.
+4. **Polarity and temperature may also matter.** I have not measured either one on this L29, so the model cannot divide the result precisely between the center tip, ground tip, polarity, and electrode temperature. Only a secondary-ignition scope test on the truck can show the real firing-voltage difference.
+
+Iridium and platinum matter mainly because they tolerate heat and erosion well enough to preserve these small firing surfaces. The geometry provides the possible electrical and flame-kernel advantages; the precious metals help that geometry remain consistent in service.
 
 ## Other Practical Benefits of the Fine-Wire Design
 
@@ -167,50 +169,42 @@ Lower firing-voltage demand is only part of the comparison. I also built a 3D pr
 
 ### Less Metal Around the Developing Spark
 
-Once the spark jumps the gap, nearby metal can draw heat from the young flame and physically occupy space around it. I therefore calculated two simple geometric quantities inside an idealized sphere centered in the gap:
+Once the spark jumps the gap, nearby metal can draw heat from the young flame and physically occupy space around it. To compare the two designs, I calculated the amount of electrode metal volume and exposed metal surface lying inside an idealized spherical kernel centered in the gap.
 
-- **Enclosed metal volume**, as a geometric obstruction proxy.
-- **Enclosed metal surface**, as a geometric proxy for nearby surface available to exchange heat with the hot gas.
-
-The IT16TT model uses the measured center tip, both tapers, ground needle, gap, and strap dimensions. The conventional reference uses an assumed 2.5 mm cylindrical center electrode and a strap with the same measured width and thickness as the IT16TT, but without the projecting needle. Photographs show the R44LTS strap is broadly similar, but I did not measure that plug the same way. The percentages below therefore compare a measured IT16TT profile with an assumed R44LTS-style reference.
-
-| Kernel radius | IT16TT metal volume | Conventional volume | Less volume | IT16TT metal surface | Conventional surface | Less surface |
-|---:|---:|---:|---:|---:|---:|---:|
-| 0.75 mm | 0.104 mm³ | 0.242 mm³ | 56.9% | 1.115 mm² | 1.900 mm² | 41.3% |
-| 1.00 mm | 0.237 mm³ | 1.262 mm³ | 81.2% | 2.039 mm² | 4.649 mm² | 56.1% |
-| 1.25 mm | 0.371 mm³ | 3.452 mm³ | 89.3% | 3.077 mm² | 8.183 mm² | 62.4% |
-| 1.50 mm | 0.557 mm³ | 6.974 mm³ | 92.0% | 4.291 mm² | 13.667 mm² | 68.6% |
-| 2.00 mm | 2.712 mm³ | 16.181 mm³ | 83.2% | 11.443 mm² | 26.668 mm² | 57.1% |
-| 2.50 mm | 8.755 mm³ | 25.746 mm³ | 66.0% | 21.333 mm² | 47.488 mm² | 55.1% |
+The IT16TT model uses measurements of the actual center tip, both tapered sections, ground needle, gap, and strap. The conventional reference uses an assumed 2.5 mm cylindrical center electrode and a strap with the same measured width and thickness as the IT16TT, but without the projecting ground needle. Photographs show that the R44LTS strap is broadly similar, but I did not measure that plug the same way. This is therefore a comparison between the measured IT16TT and an assumed R44LTS-style reference, not two fully measured plugs.
 
 ![Two charts comparing the metal volume and metal surface enclosed by an idealized growing spherical flame kernel for the measured IT16TT profile, a conventional reference at the same .040-inch gap, and the conventional reference at a .060-inch gap](kernel-electrode-contact.png)
 
 *Three-dimensional geometric proxies, not a transient thermal-quenching simulation. The dashed line marks the approximately 1.44 mm kernel radius at which the idealized sphere first reaches the IT16TT ground strap; the dotted line marks the approximately 2.08 mm radius at which it reaches the IT16TT strap's visible sides. The IT16TT strap's back face is approximately 2.90 mm from the gap center, beyond the plotted range.*
 
-At a 1.5 mm kernel radius, the IT16TT model contains about 92% less metal volume and 69% less metal surface than the same-gap assumed reference. By 2.5 mm, those differences fall to about 66% and 55% as the growing sphere reaches more of the IT16TT strap.
+At a modeled kernel radius of 1.0 mm, the IT16TT contains about 81% less metal volume and 56% less metal surface than the same-gap conventional reference. At 1.5 mm, the differences are about 92% and 69%. The complete values are included in Appendix D.
 
-I also compared the IT16TT at .040 inch with the assumed conventional geometry at .060 inch. At a 1.0 mm kernel radius, the IT16TT contains about 28% less metal volume and 23% less surface; at 1.5 mm, about 87% less volume and 60% less surface. The IT16TT is not better at every instant: before a centered kernel reaches half of the .060-inch gap, it has not touched the wider-gap conventional electrodes at all. Beyond roughly 1 mm, however, the much smaller tips more than offset the wider conventional gap in these two geometric measures.
+I also compared the IT16TT at .040 inch with the assumed conventional geometry at .060 inch. At a 1.0 mm kernel radius, the IT16TT contains about 28% less metal volume and 23% less surface. At 1.5 mm, it contains about 87% less volume and 60% less surface.
 
-This is consistent with less early heat loss, but it is not a heat-transfer or combustion simulation. The percentages do **not** mean 92% or 69% less thermal quenching, and they do not predict horsepower. The narrow conclusion is that the measured IT16TT geometry puts less metal near much of the modeled early kernel than the assumed conventional reference. Published experiments on electrode geometry (Pischinger and Heywood; Lee and Boehler; Alger et al.; see Sources) provide the context for that direction. The first of these found reduced electrode heat loss and a wider stable operating regime with smaller electrodes, but they are experimental background, not a test of this plug or engine. Any real combustion effect on an L29 would have to be measured.
+The IT16TT is not better at every instant. Before a centered kernel reaches half of the conventional .060-inch gap, it has not touched those wider-gap electrodes at all. Beyond roughly a 1 mm kernel radius, however, the IT16TT’s much smaller tips more than offset the wider conventional gap in these two geometric measures.
+
+These results are consistent with less early heat loss, but this is not a heat-transfer or combustion simulation. The percentages do not mean an equal reduction in thermal quenching, and they do not predict horsepower. The narrow conclusion is that the measured IT16TT geometry places less metal around much of the modeled early kernel than the assumed conventional reference. Published experiments provide support for that general direction, but the actual effect on an L29 would have to be measured.
 
 ### Why Holding the Tip Shape and Gap Matters
 
 The precious metals matter mainly because they help the plug keep the gap and fine firing shape that make it easier to fire.
 
-**Gap growth.** As a plug's gap wears open, its required voltage keeps climbing. Starting from .040 inch:
+**Gap growth.** As a plug wears and its gap opens, the required firing voltage continues to rise. Starting from .040 inch:
 
-| Gap growth | Regular plug: more voltage needed | IT16TT: more voltage needed (model) |
-| --- | --- | --- |
-| +.005" (to .045") | 9–11% | 6–7% |
-| +.010" (to .050") | 17–22% | 11–13% |
-| +.015" (to .055") | 24–32% | 16–18% |
-| +.020" (to .060") | 31–43% | 21–23% |
+| Gap growth | Conventional plug: additional voltage required | IT16TT: additional voltage required |
+| --- | ---: | ---: |
+| +.005" to .045" | 9–11% | 6–7% |
+| +.010" to .050" | 17–22% | 11–13% |
+| +.015" to .055" | 24–32% | 16–18% |
+| +.020" to .060" | 31–43% | 21–23% |
 
-The regular-plug range comes from the two models used earlier. The first .005 inch of growth costs roughly 9–11% more voltage, while the fine tip appears somewhat less sensitive. I do not have wear-rate data for either plug, so these numbers show the value of holding the gap—not how quickly either plug will wear.
+The conventional-plug range comes from the two calculations used earlier. The IT16TT values come from the fine-tip model. I do not have wear-rate data showing how quickly either plug reaches these gaps, so the figures show the cost of gap growth—not the service life of either plug.
 
-**Tip shape.** The IT16TT's advantage depends on the tip staying small. Holding the gap at .040 inch and the ground tip fixed, here is how the modeled advantage over a regular plug changes as the effective radius of the center tip grows (each range spans both thresholds and both loads):
+**Tip shape.**
 
-| Effective center-tip radius | IT16TT advantage over a regular plug at the same gap |
+**Tip shape.** The IT16TT's advantage depends on the tip staying small. Holding the gap at .040 inch and the ground tip fixed, here is how the modeled advantage over a conventional plug changes as the effective radius of the center tip grows (each range spans both thresholds and both loads):
+
+| Effective center-tip radius | IT16TT advantage over a conventional plug at the same gap |
 | --- | --- |
 | 0.2 mm (as designed) | 12–24% |
 | 0.3 mm | 7–14% |
@@ -222,7 +216,7 @@ Doubling the effective tip radius from 0.2 to 0.4 mm removes about 58% of the mo
 
 Another way to look at the results is to ask how much of an assumed voltage reserve remains under heavy load. I do not know the actual reserve of any particular L29, so the table uses three hypothetical starting points. Each starts with a regular .060-inch plug as the reference.
 
-| Starting margin with a regular .060" plug | Regular plug, .060" | Regular plug, .040" | Regular plug, .035" | Denso IT16TT, .040" |
+| Starting margin with a regular .060" plug | Conventional plug, .060" | Conventional plug, .040" | Conventional plug, .035" | Denso IT16TT, .040" |
 | --- | --- | --- | --- | --- |
 | 10% | 9% | 31% | 38% | 42% (47% alternate) |
 | 25% | 20% | 39% | 45% | 49% (54% alternate) |
@@ -246,9 +240,11 @@ The plug therefore asks the ignition system to do two jobs: break down the gap, 
 
 None of this changes the need for the correct heat range. Heat range describes how quickly the firing end passes heat into the cylinder head; it does not mean spark temperature or ignition strength. Too cold can encourage fouling, while too hot can raise the risk of pre-ignition and electrode damage.
 
-The 3D kernel comparison does not determine heat range. It looks only at the metal near a young flame kernel. A fine tip can put less metal beside that kernel without making the entire plug hotter or colder.
+Rather than trying to translate ACDelco and Denso heat-range numbers directly, I used Denso’s own cross-reference. Denso maps the R44LTS to several Denso heat-range-16 plugs, and the IT16TT is also heat range 16. Its 14 mm thread, 17.5 mm reach, tapered seat, and 16 mm hex also match the required basic dimensions.
 
-Rather than translating ACDelco and Denso numbers directly, I used Denso's cross-reference. Denso maps the R44LTS to its heat-range-16 plugs, and the IT16TT is also a 16. Its thread, reach, tapered seat, and hex also match, while the DensoProducts.com catalog lists DEN4713/IT16TT for the 1997 GMC K2500 Suburban with L29 454 7.4L engine at .040 inch, eight required. I would still inspect the plugs after the truck's hardest use—towing, long grades, hot weather, or sustained load—as I would with any replacement plug.
+The DensoProducts.com application catalog additionally lists DEN4713/IT16TT as compatible when the vehicle filter is set to the 1997 GMC K2500 Suburban, specifying a .040-inch gap and eight plugs. That is a retailer application guide rather than Denso’s corporate technical catalog, so I treat it as supporting application information rather than the sole proof of fit.
+
+None of the geometry calculations determine heat range. A fine tip can place less metal beside the developing kernel without making the plug itself hotter or colder. As with any replacement plug, I would still inspect the IT16TTs after the truck’s hardest use—towing, long grades, hot weather, or sustained heavy load.
 
 ## Choose a Plug Designed for the Gap You Want
 
@@ -264,33 +260,33 @@ As a separate what-if calculation, an **IT16TT-style** fine tip at .060 inch com
 
 ## The Practical Takeaway
 
-The more I looked at this, the less useful the usual "copper versus iridium" argument became. The whole package matters: correct thread, reach, seat, protrusion, and heat range; a sensible gap; the firing-tip shape; how well it holds that shape; and how much ignition reserve remains under load. A good conventional plug at .035–.045 inch can work extremely well. A good fine-wire plug can do the same while holding its gap and firing shape longer. There is no magic plug.
+The more I looked at this, the less useful the usual “copper versus iridium” argument became. What matters is the complete package: the correct thread, reach, seat, protrusion, and heat range; a sensible gap; the firing-tip geometry; how well that geometry holds up; and how much ignition reserve remains when the engine is working hardest.
 
-That is why the IT16TT makes sense to me for the L29. It has the right basic dimensions and Denso heat range, and the DensoProducts.com catalog lists it for the 1997 K2500 Suburban. It also comes in the gap range I want without bending a .060-inch plug far out of its original shape.
+A good conventional plug at .035–.045 inch can be easy to fire and work extremely well. A properly chosen fine-wire plug can do the same while retaining its gap and firing-tip shape longer. On the other hand, a fine-wire plug with a very large gap can still place substantial demand on the ignition system. There really is no magic plug.
 
-I expect the truck to run much the same in normal driving as it would with good R44LTS plugs. The model shows a 12–15% reference-case advantage over a conventional plug at the same .040-inch gap, but only about 3–7% over an R44LTS at .035 inch. Those are estimates, not promises. If there is a noticeable real-world benefit, I expect it to be better long-term gap retention and a little more ignition reserve under load—not added horsepower or a dramatic change in how the truck drives.
+That is why the IT16TT makes sense to me for the L29. It has the correct basic dimensions and Denso heat range, and it is listed for the 1997 K2500 Suburban application in the DensoProducts.com catalog. It also comes in the gap range I want without requiring me to bend a .060-inch plug far from its original configuration.
 
-The cleanest way to test any of this would be a secondary-voltage capture on a scope during a snap-throttle test, comparing a conventional plug at .035 inch against the IT16TT at .040 inch under the same conditions. One or two such captures would say more about the real size of the difference than another round of modeling.
+I expect the truck to run much the same during normal driving as it would with a good set of R44LTS plugs. The model shows a 12–15% main-case advantage over a conventional plug at the same .040-inch gap, but only about 3–7% over a conventional plug at .035 inch. Those figures are estimates, not promises. If there is a useful real-world benefit, I expect it to appear as better long-term retention of the gap and firing shape, along with a modest amount of additional ignition reserve under load—not additional horsepower or a dramatic change in how the truck drives.
 
-The same reasoning applies to any properly designed fine-wire plug chosen with the engine, gap, heat range, and ignition system in mind.
+The cleanest test would be a secondary-voltage scope capture during a snap-throttle test, comparing a conventional plug at .035 inch with the IT16TT at .040 inch under the same conditions. Even one good before-and-after comparison would tell us more about the real difference than another round of modeling.
+
+Electrical breakdown is also only the beginning. Mixture quality, turbulence, fuel preparation, residual exhaust, temperature, compression, and the energy delivered after the spark begins all affect whether a stable flame develops. A spark plug cannot fix weak fuel pressure, poor injectors, bad sensor inputs, low compression, or another underlying engine problem.
+
+The same reasoning applies to any properly designed fine-wire plug selected with the engine, gap, heat range, and ignition system in mind.
 
 ## Parts Quality and Counterfeit Components
 
 Where the plugs come from matters too. Counterfeit ignition and engine-management parts can look convincing, perform poorly, and create symptoms that send a good diagnosis in the wrong direction. I prefer buying from the manufacturer or an authorized seller whenever possible. Denso provides an official [Where to Buy](https://www.densoautoparts.com/where-to-buy-passenger/) page.
 
-## One Final Thought
 
-Electrical breakdown is only the beginning. Mixture quality, turbulence, fuel preparation, residual exhaust, temperature, compression, and the energy delivered through the spark all affect whether a stable flame develops. The plug can only ignite the mixture it is given; it cannot fix weak fuel pressure, poor injectors, bad sensor inputs, low compression, or other engine problems.
-
-A conventional ignition system already works well under normal conditions. What interested me was how much reserve gets used as pressure, gap, tip shape, component age, RPM, and mixture conditions change. The spark is only the first tiny part of a much more complicated event—and that is what made this rabbit hole interesting in the first place.
 
 ## Sources and Model References
 
 - Denso's official [Iridium TT specifications](https://www.denso.com/global/en/products-and-services/automotive-service-parts-and-accessories/plug/iridiumtt/productlist.html) list the IT16TT's 14 mm thread, 17.5 mm reach, 16 mm hex, 1.0 mm nominal gap, tapered seat, and related dimensions.
 - Denso's [Iridium TT technical overview](https://am.denso.com/plug-global/products/iridiumtt/) describes the 0.4 mm iridium center, 0.7 mm needle-type platinum ground electrode, lower required-voltage principle, and reduced interference with flame growth.
 - Denso's official [cross-reference search](https://am.denso.com/search/plug-global/cross_ref/list.cgi?m=1&p=0) lists R44LTS against T16EPR-U, IT16, and VT16, supporting the Denso heat-range-16 comparison.
-- The retailer [DensoProducts.com application listing](https://www.densoproducts.com/denso-4713-it16tt-iridium-tt-spark-plug), with the 1997 GMC K2500 Suburban, identifies DEN4713/IT16TT as compatible and specifies a .040-inch gap with eight plugs required. This is a retailer vehicle-application catalog, not Denso's corporate technical site.
-- Denso's [heat-range explanation](https://www.denso.com/global/en/products-and-services/automotive-service-parts-and-accessories/plug/basic/heatrange/) explains why heat-range numbers are manufacturer-specific and why firing-end temperature depends on the plug's heat-transfer path.
+- The retailer [DensoProducts.com application listing](https://www.densoproducts.com/denso-4713-it16tt-iridium-tt-spark-plug) identifies DEN4713/IT16TT as compatible when its vehicle filter is set to the 1997 GMC K2500 Suburban and specifies a .040-inch gap with eight plugs required. Because this result depends on the selected vehicle filter and comes from a retailer application guide, I identify it separately from Denso’s corporate technical and cross-reference information.
+- Denso’s [heat-range explanation](https://www.denso.com/global/en/products-and-services/automotive-service-parts-and-accessories/plug/basic/heatrange/) explains how firing-end construction and the plug’s heat-transfer path determine operating temperature. The actual comparison between the R44LTS and Denso heat-range-16 plugs comes from Denso’s cross-reference search rather than from assuming that different manufacturers’ numbering systems are interchangeable.
 - GM bulletin [#03-06-04-060B](https://downloads.innova.com/tsb-files/42000/2176126.pdf), *Information on New Spark Plugs and Gapping*, documents the later GM applications and the factory-set .040-inch iridium-plug gap discussed above.
 - GM's official [ACDelco 41-979 product page](https://parts.gmparts.com/product/acdelco-gm-original-equipment-double-platinum-spark-plug-19301810) identifies it as a double-platinum, tapered-seat plug with a 17.5 mm reach and 1.6 mm/.060-inch gap. Those data do not specify an IT16TT-style firing-tip radius.
 - Pischinger and Heywood, [SAE 900021](https://saemobilus.sae.org/papers/heat-losses-spark-plug-electrodes-affect-flame-kernel-development-si-engine-900021), directly compared conventional and smaller electrodes and found reduced electrode heat loss and a wider stable operating regime with the smaller geometry. Lee and Boehler, [SAE 2005-01-1133](https://saemobilus.sae.org/papers/flame-kernel-development-effects-engine-performance-various-spark-plug-electrode-configurations-2005-01-1133), and Alger et al., [SAE 2006-01-0224](https://saemobilus.sae.org/papers/effect-sparkplug-design-initial-flame-kernel-development-sparkplug-performance-2006-01-0224), provide further experimental context for the effect of electrode geometry on early flame-kernel development, lean ignitability, and engine stability.
@@ -306,7 +302,7 @@ Thanks for reading through my rambling. Hopefully this has been informative and 
 
 ## Appendix: How the Numbers Were Calculated
 
-This section is optional reading for anyone who wants to check the math. Nothing in the main article depends on it beyond what is already stated there.
+This section is optional reading for anyone who wants to check the assumptions and arithmetic behind the article. The practical conclusions do not require following every equation, but the details are included so the calculations can be reviewed, challenged, or repeated.
 
 ### Appendix A: Firing Voltage vs. Gap (the First Table)
 
@@ -370,6 +366,19 @@ The threshold is the least certain input, so I ran two values to bracket the ans
 
 ### Appendix D: The Fine-Wire Design Estimates
 
+### Complete Kernel-Geometry Results
+
+| Kernel radius | IT16TT metal volume | Conventional volume | Less volume | IT16TT metal surface | Conventional surface | Less surface |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 0.75 mm | 0.104 mm³ | 0.242 mm³ | 56.9% | 1.115 mm² | 1.900 mm² | 41.3% |
+| 1.00 mm | 0.237 mm³ | 1.262 mm³ | 81.2% | 2.039 mm² | 4.649 mm² | 56.1% |
+| 1.25 mm | 0.371 mm³ | 3.452 mm³ | 89.3% | 3.077 mm² | 8.183 mm² | 62.4% |
+| 1.50 mm | 0.557 mm³ | 6.974 mm³ | 92.0% | 4.291 mm² | 13.667 mm² | 68.6% |
+| 2.00 mm | 2.712 mm³ | 16.181 mm³ | 83.2% | 11.443 mm² | 26.668 mm² | 57.1% |
+| 2.50 mm | 8.755 mm³ | 25.746 mm³ | 66.0% | 21.333 mm² | 47.488 mm² | 55.1% |
+
+These values compare the measured IT16TT profile with the assumed same-gap conventional geometry described above. They are geometric volume and surface-area proxies, not calculated reductions in heat loss, thermal quenching, or combustion time.
+
 **Three-dimensional kernel geometry.** I modeled the developing kernel as a sphere of radius R centered midway across the measured 1.02 mm gap. The IT16TT center-electrode profile consists of a 0.69 mm-long cylinder with a 0.20 mm radius, a 0.40 mm-long frustum widening from 0.30 to 0.385 mm radius, and a 0.66 mm-long frustum widening from 0.385 to 1.025 mm radius. The ground needle is a 0.93 mm-long cylinder with a 0.35 mm radius. Its back face places the front of the ground strap 1.44 mm from the gap center. The strap's measured thickness converts to approximately 1.46 mm, placing its back face about 2.90 mm from the gap center. A separate side-profile scale gives a visible strap width of approximately 3.00 mm. Because the bend extends away behind the center electrode in that view, the unresolved direction is treated as long over the kernel region. The step from the 0.20 mm straight tip to the 0.30 mm start of the first taper is counted as an exposed annular shoulder.
 
 For an axisymmetric electrode with radius r(z), the metal volume lying inside the spherical kernel is:
@@ -392,7 +401,7 @@ These are geometric obstruction and heat-transfer-area proxies, not calculated r
 
 **Gap growth.** The regular-plug ranges combine two sources: the geometry model from Appendix C (conventional tip, 1.25 mm radius, facing a flat ground) and the uniform-field formula from Appendix A. The IT16TT values come from the Appendix C model alone, using the same two thresholds and both load conditions. The uniform-field formula rises faster with gap than the geometry model does, for the reason given earlier in the article.
 
-**Tip shape.** The same Appendix C model, with the IT16TT's center-tip radius set to 0.2, 0.3, and 0.4 mm, the ground tip fixed at 0.35 mm, and the gap at .040 inch, compared against the regular plug. Both thresholds and both load conditions were run, and the 58% reduction in advantage at 0.4 mm held in all four cases.
+**Tip shape.** The same Appendix C model, with the IT16TT's center-tip radius set to 0.2, 0.3, and 0.4 mm, the ground tip fixed at 0.35 mm, and the gap at .040 inch, compared against the conventional plug. Both thresholds and both load conditions were run, and the 58% reduction in advantage at 0.4 mm held in all four cases.
 
 **Illustrative voltage margin.** Let R₆₀ be the heavy-load voltage requirement of a regular .060-inch plug, and let the assumed available voltage be (1 + M) × R₆₀, where M is the starting margin. The share of that assumed budget remaining above a modeled requirement is 1 − (requirement ÷ available voltage). From the relative heavy-load results, a regular .040-inch plug needs about 0.759 × R₆₀ in the K = 18 reference case, a regular .035-inch plug needs about 0.687 × R₆₀, and the IT16TT needs about 0.643 × R₆₀. The alternate Bruce-matched sensitivity calibration gives about 0.762, 0.691, and 0.580, respectively. This calculation does not establish an actual misfire threshold.
 
@@ -402,4 +411,4 @@ These are geometric obstruction and heat-transfer-area proxies, not calculated r
 - Regular .035": 1 − 0.687 / 1.25 = **45%**
 - IT16TT .040": 1 − 0.643 / 1.25 = **49%** (**54%** with the alternate 0.580 ratio)
 
-**Fine tip at .060 inch.** The same Appendix C model, with an IT16TT-style tip (0.2 mm center radius, 0.35 mm ground radius) at a .060-inch gap (1.524 mm), compared four ways. Against a regular plug at .060 inch, it requires 18–30% less voltage. Against the same fine tip at .040 inch, it requires 21–23% more. Against a regular plug at .040 inch, it requires between 8% less and 8% more, depending on the threshold and load. Against a regular plug at .035 inch, it requires about 14–19% more in the reference case and 1–5% more in the alternate case. Both thresholds and both load conditions were run.
+**Fine tip at .060 inch.** The same Appendix C model, with an IT16TT-style tip (0.2 mm center radius, 0.35 mm ground radius) at a .060-inch gap (1.524 mm), compared four ways. Against a conventional plug at .060 inch, it requires 18–30% less voltage. Against the same fine tip at .040 inch, it requires 21–23% more. Against a conventional plug at .040 inch, it requires between 8% less and 8% more, depending on the threshold and load. Against a conventional plug at .035 inch, it requires about 14–19% more in the reference case and 1–5% more in the alternate case. Both thresholds and both load conditions were run.
