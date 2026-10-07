@@ -22,7 +22,7 @@ I compared conventional plugs gapped from .035 to .060 inch along with the Denso
 
 ### What this means for my L29
 
-For me, the IT16TT at its roughly .040-inch factory gap is a well-supported choice based on fit and heat range. Compared with a conventional plug at .060 inch, the model shows a substantial reduction in firing-voltage demand, which should leave more ignition-system reserve under heavy load. Compared with a conventional plug at .035 inch, the calculated advantage is much smaller—about 3–7%.
+For me, the IT16TT at its roughly .040-inch factory gap is a well-supported choice based on fit and heat range. Compared with a conventional plug at .060 inch, the model shows a substantial reduction in firing-voltage demand, which should leave more ignition-system reserve under heavy load. Compared with a conventional plug at .035 inch, the calculated advantage is a bit smaller—about 3–7%.
 
 The fine-wire Twin-Tip geometry also places less metal around the developing flame kernel and should retain its gap and firing-tip shape longer than a conventional nickel plug. That does not prove that it produces the same kernel as a conventional plug with a wider gap, but it does suggest that the smaller .040-inch gap does not automatically mean poorer early flame development in this case.
 
