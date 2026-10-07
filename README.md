@@ -22,7 +22,11 @@ I compared conventional plugs gapped from .035 to .060 inch along with the Denso
 
 ### What this means for my L29
 
-For me, the IT16TT at its roughly .040-inch factory gap is a well-supported choice on fit and heat range. Compared with a .060-inch setup, the model shows a large drop in firing-voltage demand. Compared with a conventional plug at .035 inch, the difference is much smaller—about 3–7%. That means the better case for the IT16TT is long-term gap and tip-shape retention, with a possible modest reserve advantage under load. I am not expecting a “magic” plug or extra horsepower.
+For me, the IT16TT at its roughly .040-inch factory gap is a well-supported choice based on fit and heat range. Compared with a conventional plug at .060 inch, the model shows a substantial reduction in firing-voltage demand, which should leave more ignition-system reserve under heavy load. Compared with a conventional plug at .035 inch, the calculated advantage is much smaller—about 3–7%.
+
+The fine-wire Twin-Tip geometry also places less metal around the developing flame kernel and should retain its gap and firing-tip shape longer than a conventional nickel plug. That does not prove that it produces the same kernel as a conventional plug with a wider gap, but it does suggest that the smaller .040-inch gap does not automatically mean poorer early flame development in this case.
+
+With all that said, I am not expecting a “magic” plug or additional horsepower. What I am looking for is reliable performance under load, a little more ignition reserve when cylinder pressure and firing-voltage demand are highest, and firing geometry that should remain consistent for a long time.
 
 ![Two-panel chart comparing modeled firing-voltage requirements within each load condition: the conventional .060-inch reference is 100 percent, the conventional .040-inch plug is about 76 percent, the conventional .035-inch plug is about 69 percent, and the IT16TT at .040 inch is 59–67 percent during cruising and 58–64 percent under heavy load](opening-voltage-comparison.png)
 
