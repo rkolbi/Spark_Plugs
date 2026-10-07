@@ -18,7 +18,7 @@ I compared conventional plugs gapped from .035 to .060 inch along with the Denso
 - **Reserve and durability:** A plug that takes less voltage to fire leaves more of the existing ignition capability available for hard acceleration, towing, high cylinder pressure, moisture, wear, and aging secondary parts. It does not create more coil energy or engine power. The fine tips also put less metal around much of the developing flame kernel in the 3D model. Just as important, the precious-metal tips should hold their shape and gap longer. The first .005 inch of modeled gap growth adds about 9–11% to a regular plug's voltage demand, compared with roughly 6–7% for the IT16TT.
 - **GM precedent:** GM TSB #03-06-04-060B documents GM moving a number of later V8s to an iridium-tip plug with a factory .040-inch gap, and it attributes the smaller gap to the different firing-tip design. It does not cover the L29, but it shows GM itself pairing a fine-wire tip with a tighter gap instead of treating .060 inch as a given.
 - **L29 factory-spec discrepancy:** The *1997 Chevrolet Light Duty CK Truck Service Manual, Volume 1-1* lists .035 inch in the engine-mechanical section and “.60” without units in the ignition section, which I read as .060 inch. The ignition page points to Section 0B, and the underhood emissions label may settle the question. Until then, I show both baselines instead of choosing the one that makes the result look best.
-- **Fit and limits:** More importantly, all performance numbers here are modeled estimates. No plug can fix a worn cap, rotor, wires, poor fuel delivery, or another underlying problem.
+- **Limits:** All performance numbers here are modeled estimates. No plug can fix a worn cap, rotor, wires, poor fuel delivery, or another underlying problem.
 
 ### What this means for my L29
 
@@ -38,21 +38,19 @@ What started as a comparison between two spark plugs turned into a much deeper l
 
 ![1997 Chevrolet Light Duty CK Truck Service Manual, Volume 1-1, engine-mechanical specifications](conflicting-gaps-1.png)
 
-
-
 ![1997 Chevrolet Light Duty CK Truck Service Manual, Volume 1-1, ignition-system specifications for spark plugs](conflicting-gaps-2.png)
 
 *1997 Chevrolet Light Duty CK Truck Service Manual, Volume 1-1. The engine-mechanical page lists **0.035 in.** The ignition page prints **0.60** without a unit, which I read as 0.060 inch, and refers plug usage to Section 0B.*
 
 I first looked at the ACDelco R44LTS as a conventional tighter-gap option. Then I found the Denso IT16TT, which comes near .040 inch and uses a 0.4 mm iridium center tip and a 0.7 mm platinum ground tip. At that point, the question became less about brand names and more about what the gap and electrode shape ask the ignition system to do.
 
-The basic dimensions match: both use a 14 mm thread, 17.5 mm reach, tapered seat, and essentially the same 5/8-inch/16 mm hex. Heat-range numbers do not translate directly between brands, so I checked Denso's own cross-reference. Denso maps the R44LTS to several heat-range-16 plugs, and the IT16TT is also heat range 16. DensoProducts.com additionally lists DEN4713/IT16TT for a selected 1997 K2500 Suburban, with a .040-inch gap and eight plugs.
+The basic dimensions match: both use a 14 mm thread, 17.5 mm reach, tapered seat, and essentially the same 5/8-inch/16 mm hex. Heat-range numbers do not translate directly between brands, so I checked Denso's own cross-reference. Denso maps the R44LTS to several heat-range-16 plugs, and the IT16TT is also heat range 16. DensoProducts.com additionally lists DEN4713/IT16TT for the 1997 K2500 Suburban, with a .040-inch gap and eight plugs.
 
 ## Gap Is Only Part of the Story
 
 A wider gap can expose more mixture to the initial discharge and may help the flame kernel get started, but wider is not automatically better. Voltage demand rises with gap, and any possible combustion benefit disappears if the ignition starts missing under acceleration, towing, or a long grade. The practical goal is a useful gap that still leaves enough ignition reserve.
 
-The table below shows how modeled firing voltage changes with gap under representative light- and heavy-load conditions. The load points—5 bar/600 K and 13 bar/720 K—are not measurements from my engine. They are simply consistent conditions for comparing trends. The conventional rows use the Bruce uniform-field equation; the IT16TT row adds the separate fine-tip adjustment explained later.
+The table below shows how modeled firing voltage changes with gap under representative light- and heavy-load conditions. The load points—5 bar/600 K and 13 bar/720 K—are not measurements from my engine. They are simply consistent conditions for comparing trends. The conventional rows use the Bruce uniform-field equation; the IT16TT row adds the separate fine-tip adjustment explained later. Appendix A at the end has the step-by-step calculation.
 
 To keep the math from turning into one big apples-to-oranges comparison, I use three separate calculations for three separate questions:
 
@@ -63,7 +61,7 @@ To keep the math from turning into one big apples-to-oranges comparison, I use t
 | Plug / Gap          | Light Load | Heavy Load | Light Load, % of .035 LL | Heavy Load, % of .035 LL |
 | ------------------- | ---------- | ---------- | ------------------------ | ------------------------ |
 | Conventional .035"  | ~8.0 kV    | ~15.4 kV   | 100%                     | 192%                     |
-| Denso IT16TT ~.040" | ~7.9 kV | ~14.6 kV | 98%     | 183%    |
+| Denso IT16TT ~.040" | ~7.9 kV    | ~14.6 kV   | 98%                      | 183%                     |
 | Conventional .040"  | ~8.9 kV    | ~17.3 kV   | 112%                     | 216%                     |
 | Conventional .045"  | ~9.9 kV    | ~19.2 kV   | 123%                     | 239%                     |
 | Conventional .050"  | ~10.8 kV   | ~21.0 kV   | 135%                     | 263%                     |
@@ -193,7 +191,7 @@ At a 1.5 mm kernel radius, the IT16TT model contains about 92% less metal volume
 
 I also compared the IT16TT at .040 inch with the assumed conventional geometry at .060 inch. At a 1.0 mm kernel radius, the IT16TT contains about 28% less metal volume and 23% less surface; at 1.5 mm, about 87% less volume and 60% less surface. The IT16TT is not better at every instant: before a centered kernel reaches half of the .060-inch gap, it has not touched the wider-gap conventional electrodes at all. Beyond roughly 1 mm, however, the much smaller tips more than offset the wider conventional gap in these two geometric measures.
 
-This is consistent with less early heat loss, but it is not a heat-transfer or combustion simulation. The percentages do **not** mean 92% or 69% less thermal quenching, and they do not predict horsepower. The narrow conclusion is that the measured IT16TT geometry puts less metal near much of the modeled early kernel than the assumed conventional reference. Any real combustion effect on an L29 would have to be measured.
+This is consistent with less early heat loss, but it is not a heat-transfer or combustion simulation. The percentages do **not** mean 92% or 69% less thermal quenching, and they do not predict horsepower. The narrow conclusion is that the measured IT16TT geometry puts less metal near much of the modeled early kernel than the assumed conventional reference. Published experiments on electrode geometry (Pischinger and Heywood; Lee and Boehler; Alger et al.; see Sources) provide the context for that direction. The first of these found reduced electrode heat loss and a wider stable operating regime with smaller electrodes, but they are experimental background, not a test of this plug or engine. Any real combustion effect on an L29 would have to be measured.
 
 ### Why Holding the Tip Shape and Gap Matters
 
@@ -250,7 +248,7 @@ None of this changes the need for the correct heat range. Heat range describes h
 
 The 3D kernel comparison does not determine heat range. It looks only at the metal near a young flame kernel. A fine tip can put less metal beside that kernel without making the entire plug hotter or colder.
 
-Rather than translating ACDelco and Denso numbers directly, I used Denso's cross-reference. Denso maps the R44LTS to its heat-range-16 plugs, and the IT16TT is also a 16. Its thread, reach, tapered seat, and hex also match, while the DensoProducts.com catalog lists DEN4713/IT16TT for the selected 1997 GMC K2500 Suburban SLE at .040 inch, eight required. I would still inspect the plugs after the truck's hardest use—towing, long grades, hot weather, or sustained load—as I would with any replacement plug.
+Rather than translating ACDelco and Denso numbers directly, I used Denso's cross-reference. Denso maps the R44LTS to its heat-range-16 plugs, and the IT16TT is also a 16. Its thread, reach, tapered seat, and hex also match, while the DensoProducts.com catalog lists DEN4713/IT16TT for the 1997 GMC K2500 Suburban with L29 454 7.4L engine at .040 inch, eight required. I would still inspect the plugs after the truck's hardest use—towing, long grades, hot weather, or sustained load—as I would with any replacement plug.
 
 ## Choose a Plug Designed for the Gap You Want
 
@@ -268,7 +266,7 @@ As a separate what-if calculation, an **IT16TT-style** fine tip at .060 inch com
 
 The more I looked at this, the less useful the usual "copper versus iridium" argument became. The whole package matters: correct thread, reach, seat, protrusion, and heat range; a sensible gap; the firing-tip shape; how well it holds that shape; and how much ignition reserve remains under load. A good conventional plug at .035–.045 inch can work extremely well. A good fine-wire plug can do the same while holding its gap and firing shape longer. There is no magic plug.
 
-That is why the IT16TT makes sense to me for the L29. It has the right basic dimensions and Denso heat range, and the DensoProducts.com catalog lists it for the selected 1997 K2500 Suburban SLE. It also comes in the gap range I want without bending a .060-inch plug far out of its original shape.
+That is why the IT16TT makes sense to me for the L29. It has the right basic dimensions and Denso heat range, and the DensoProducts.com catalog lists it for the 1997 K2500 Suburban. It also comes in the gap range I want without bending a .060-inch plug far out of its original shape.
 
 I expect the truck to run much the same in normal driving as it would with good R44LTS plugs. The model shows a 12–15% reference-case advantage over a conventional plug at the same .040-inch gap, but only about 3–7% over an R44LTS at .035 inch. Those are estimates, not promises. If there is a noticeable real-world benefit, I expect it to be better long-term gap retention and a little more ignition reserve under load—not added horsepower or a dramatic change in how the truck drives.
 
@@ -291,7 +289,7 @@ A conventional ignition system already works well under normal conditions. What 
 - Denso's official [Iridium TT specifications](https://www.denso.com/global/en/products-and-services/automotive-service-parts-and-accessories/plug/iridiumtt/productlist.html) list the IT16TT's 14 mm thread, 17.5 mm reach, 16 mm hex, 1.0 mm nominal gap, tapered seat, and related dimensions.
 - Denso's [Iridium TT technical overview](https://am.denso.com/plug-global/products/iridiumtt/) describes the 0.4 mm iridium center, 0.7 mm needle-type platinum ground electrode, lower required-voltage principle, and reduced interference with flame growth.
 - Denso's official [cross-reference search](https://am.denso.com/search/plug-global/cross_ref/list.cgi?m=1&p=0) lists R44LTS against T16EPR-U, IT16, and VT16, supporting the Denso heat-range-16 comparison.
-- The retailer [DensoProducts.com application listing](https://www.densoproducts.com/denso-4713-it16tt-iridium-tt-spark-plug), with the 1997 GMC K2500 Suburban SLE selected, identifies DEN4713/IT16TT as compatible and specifies a .040-inch gap with eight plugs required. This is a retailer vehicle-application catalog, not Denso's corporate technical site.
+- The retailer [DensoProducts.com application listing](https://www.densoproducts.com/denso-4713-it16tt-iridium-tt-spark-plug), with the 1997 GMC K2500 Suburban, identifies DEN4713/IT16TT as compatible and specifies a .040-inch gap with eight plugs required. This is a retailer vehicle-application catalog, not Denso's corporate technical site.
 - Denso's [heat-range explanation](https://www.denso.com/global/en/products-and-services/automotive-service-parts-and-accessories/plug/basic/heatrange/) explains why heat-range numbers are manufacturer-specific and why firing-end temperature depends on the plug's heat-transfer path.
 - GM bulletin [#03-06-04-060B](https://downloads.innova.com/tsb-files/42000/2176126.pdf), *Information on New Spark Plugs and Gapping*, documents the later GM applications and the factory-set .040-inch iridium-plug gap discussed above.
 - GM's official [ACDelco 41-979 product page](https://parts.gmparts.com/product/acdelco-gm-original-equipment-double-platinum-spark-plug-19301810) identifies it as a double-platinum, tapered-seat plug with a 17.5 mm reach and 1.6 mm/.060-inch gap. Those data do not specify an IT16TT-style firing-tip radius.
