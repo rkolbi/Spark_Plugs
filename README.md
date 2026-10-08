@@ -8,11 +8,32 @@ Here is the short version. I compared conventional plugs gapped from .035 to .06
 
 The main calculation, called **K = 18**, uses a commonly accepted threshold and provides the figures shown first. I also ran a second calculation adjusted so that a simple, uniform air gap agrees with an older laboratory equation. That is called the **Bruce-matched case**, and it produces the larger figures shown in parentheses. I include it to show how sensitive the results are to the model settings, not because I consider it the expected result. Appendix C explains both methods for anyone interested in the technical details. None of these figures are ignition-scope measurements from an L29.
 
-| Modeled firing-voltage requirement | Cruising / light load | Heavy load |
-| --- | --- | --- |
-| IT16TT at .040" vs. conventional plug at .035" | about 3% less (up to 14%) | about 7% less (up to 16%) |
-| IT16TT at .040" vs. conventional plug at .060" | about 33% less (up to 41%) | about 36% less (up to 42%) |
-| Conventional plug at .035" vs. conventional plug at .060" | about 31% less | about 31% less |
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="46%" align="left">Modeled firing-voltage requirement</th>
+      <th width="27%" align="left">Cruising / light load</th>
+      <th width="27%" align="left">Heavy load</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IT16TT at .040" vs. conventional plug at .035"</td>
+      <td>about 3% less (up to 14%)</td>
+      <td>about 7% less (up to 16%)</td>
+    </tr>
+    <tr>
+      <td>IT16TT at .040" vs. conventional plug at .060"</td>
+      <td>about 33% less (up to 41%)</td>
+      <td>about 36% less (up to 42%)</td>
+    </tr>
+    <tr>
+      <td>Conventional plug at .035" vs. conventional plug at .060"</td>
+      <td>about 31% less</td>
+      <td>about 31% less</td>
+    </tr>
+  </tbody>
+</table>
 
 - **The starting point matters:** The factory manual lists both .035 and .060 inch for the L29, and that changes the comparison. Against a conventional plug at .060 inch, the IT16TT at .040 inch shows a large modeled reduction. Most of that comes from the smaller gap; a conventional plug at .035 inch already needs about 31% less voltage than one at .060 inch. Against that .035-inch plug, the IT16TT's modeled advantage is only about 3–7%.
   - **Gap:** Closing a conventional plug from .060 to .040 inch lowers the calculated requirement by about 24% in the geometry model and 29–30% in the simpler uniform-field calculation. Opening a conventional plug from .035 to .040 inch adds about 10%.
@@ -62,15 +83,24 @@ To keep the math from turning into one big apples-to-oranges comparison, I use t
 
 With those three calculations separated, the table below shows how modeled firing voltage changes with gap under representative light- and heavy-load conditions. The load points—5 bar/600 K and 13 bar/720 K—are not measurements from my engine. They are simply consistent conditions for comparing trends. The conventional rows use the Bruce uniform-field equation; the IT16TT row adds the separate fine-tip adjustment explained later. Appendix A at the end has the step-by-step calculation.
 
-| Plug and gap | Light load | Heavy load |
-| --- | ---: | ---: |
-| Conventional plug at .035" | ~8.0 kV | ~15.4 kV |
-| Denso IT16TT at ~.040" | ~7.9 kV | ~14.6 kV |
-| Conventional plug at .040" | ~8.9 kV | ~17.3 kV |
-| Conventional plug at .045" | ~9.9 kV | ~19.2 kV |
-| Conventional plug at .050" | ~10.8 kV | ~21.0 kV |
-| Conventional plug at .055" | ~11.7 kV | ~22.9 kV |
-| Conventional plug at .060" | ~12.6 kV | ~24.7 kV |
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="50%" align="left">Plug and gap</th>
+      <th width="25%" align="right">Light load</th>
+      <th width="25%" align="right">Heavy load</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Conventional plug at .035"</td><td align="right">~8.0 kV</td><td align="right">~15.4 kV</td></tr>
+    <tr><td>Denso IT16TT at ~.040"</td><td align="right">~7.9 kV</td><td align="right">~14.6 kV</td></tr>
+    <tr><td>Conventional plug at .040"</td><td align="right">~8.9 kV</td><td align="right">~17.3 kV</td></tr>
+    <tr><td>Conventional plug at .045"</td><td align="right">~9.9 kV</td><td align="right">~19.2 kV</td></tr>
+    <tr><td>Conventional plug at .050"</td><td align="right">~10.8 kV</td><td align="right">~21.0 kV</td></tr>
+    <tr><td>Conventional plug at .055"</td><td align="right">~11.7 kV</td><td align="right">~22.9 kV</td></tr>
+    <tr><td>Conventional plug at .060"</td><td align="right">~12.6 kV</td><td align="right">~24.7 kV</td></tr>
+  </tbody>
+</table>
 
 *The conventional-plug rows come from the uniform-field gap calculation. The IT16TT row starts with the conventional .040-inch result and applies the fine-tip adjustment from the separate breakdown model. These are calculated comparisons under representative conditions, not predicted firing voltages for my L29.*
 
@@ -112,10 +142,33 @@ Those measurements improve the later 3D flame-kernel comparison because they des
 
 To get a feel for the size of that effect, I compared an assumed 1.25 mm conventional tip radius with the IT16TT's 0.20 mm center-tip radius at the measured 1.02 mm gap. Appendix B has the math.
 
-| Electrode | Tip radius r | Rough formula (per volt) | Exact solution (per volt) | Relative to conventional |
-|---|---|---|---|---|
-| Conventional (~2.5 mm center) | 1.25 mm | ~1.4 mm⁻¹ | 1.471 mm⁻¹ | 1.0× |
-| IT16TT iridium (0.4 mm center) | 0.2 mm | ~3.3 mm⁻¹ | 3.520 mm⁻¹ | 2.39× |
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="30%" align="left">Electrode</th>
+      <th width="15%" align="right">Tip radius r</th>
+      <th width="20%" align="right">Rough formula (per volt)</th>
+      <th width="20%" align="right">Exact solution (per volt)</th>
+      <th width="15%" align="right">Relative to conventional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Conventional (~2.5 mm center)</td>
+      <td align="right">1.25 mm</td>
+      <td align="right">~1.4 mm⁻¹</td>
+      <td align="right">1.471 mm⁻¹</td>
+      <td align="right">1.0×</td>
+    </tr>
+    <tr>
+      <td>IT16TT iridium (0.4 mm center)</td>
+      <td align="right">0.2 mm</td>
+      <td align="right">~3.3 mm⁻¹</td>
+      <td align="right">3.520 mm⁻¹</td>
+      <td align="right">2.39×</td>
+    </tr>
+  </tbody>
+</table>
 
 ![Bar chart comparing the exact ideal-hyperboloid peak tip electric field per applied kilovolt for the conventional reference and the Denso IT16TT center electrode](field-concentration-comparison.png)
 
@@ -132,14 +185,23 @@ For this comparison, I kept the gas conditions, load, and gap the same and chang
 
 The exact point at which an electrical discharge becomes a self-sustaining spark is uncertain, so I ran the calculation with two different thresholds. The **K = 18** result is the main calculation. The **Bruce-matched case** is a sensitivity check that produces larger advantages but uses a much lower threshold, so I do not treat it as equally realistic. The first number shown below comes from the main model; the number in parentheses comes from the sensitivity check.
 
-| What changes | Cruising / light load | Towing / hard acceleration |
-| --- | ---: | ---: |
-| Conventional .035" → IT16TT .040" | 3% less (14%) | 7% less (16%) |
-| Conventional .040" → IT16TT .040" | 12% less (22%) | 15% less (24%) |
-| Conventional .060" → IT16TT .040" | 33% less (41%) | 36% less (42%) |
-| Conventional .060" → .035" | about 31% less | about 31% less |
-| Conventional .060" → .040" | about 24% less | about 24% less |
-| Conventional .035" → .040" | about 10% more | about 10% more |
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="46%" align="left">What changes</th>
+      <th width="27%" align="right">Cruising / light load</th>
+      <th width="27%" align="right">Towing / hard acceleration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Conventional .035" → IT16TT .040"</td><td align="right">3% less (14%)</td><td align="right">7% less (16%)</td></tr>
+    <tr><td>Conventional .040" → IT16TT .040"</td><td align="right">12% less (22%)</td><td align="right">15% less (24%)</td></tr>
+    <tr><td>Conventional .060" → IT16TT .040"</td><td align="right">33% less (41%)</td><td align="right">36% less (42%)</td></tr>
+    <tr><td>Conventional .060" → .035"</td><td align="right">about 31% less</td><td align="right">about 31% less</td></tr>
+    <tr><td>Conventional .060" → .040"</td><td align="right">about 24% less</td><td align="right">about 24% less</td></tr>
+    <tr><td>Conventional .035" → .040"</td><td align="right">about 10% more</td><td align="right">about 10% more</td></tr>
+  </tbody>
+</table>
 
 The first comparison is the most relevant if the L29’s intended conventional-plug gap is .035 inch. The third shows what happens when the IT16TT at .040 inch is compared with the .060-inch specification found elsewhere in the service manual. Keeping both references visible avoids choosing only the baseline that produces the largest result.
 
@@ -191,22 +253,39 @@ The precious metals matter mainly because they help the plug keep the gap and fi
 
 **Gap growth.** As a plug wears and its gap opens, the required firing voltage continues to rise. Starting from .040 inch:
 
-| Gap growth | Conventional plug: additional voltage required | IT16TT: additional voltage required |
-| --- | ---: | ---: |
-| +.005" to .045" | 9–11% | 6–7% |
-| +.010" to .050" | 17–22% | 11–13% |
-| +.015" to .055" | 24–32% | 16–18% |
-| +.020" to .060" | 31–43% | 21–23% |
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="30%" align="left">Gap growth</th>
+      <th width="40%" align="right">Conventional plug: additional voltage required</th>
+      <th width="30%" align="right">IT16TT: additional voltage required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>+.005" to .045"</td><td align="right">9–11%</td><td align="right">6–7%</td></tr>
+    <tr><td>+.010" to .050"</td><td align="right">17–22%</td><td align="right">11–13%</td></tr>
+    <tr><td>+.015" to .055"</td><td align="right">24–32%</td><td align="right">16–18%</td></tr>
+    <tr><td>+.020" to .060"</td><td align="right">31–43%</td><td align="right">21–23%</td></tr>
+  </tbody>
+</table>
 
 The conventional-plug range comes from the two calculations used earlier. The IT16TT values come from the fine-tip model. I do not have wear-rate data showing how quickly either plug reaches these gaps, so the figures show the cost of gap growth—not the service life of either plug.
 
 **Tip shape.** The IT16TT's advantage depends on the tip staying small. Holding the gap at .040 inch and the ground tip fixed, here is how the modeled advantage over a conventional plug changes as the effective radius of the center tip grows (each range spans both thresholds and both loads):
 
-| Effective center-tip radius | IT16TT advantage over a conventional plug at the same gap |
-| --- | --- |
-| 0.2 mm (as designed) | 12–24% |
-| 0.3 mm | 7–14% |
-| 0.4 mm | 5–10% |
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="35%" align="left">Effective center-tip radius</th>
+      <th width="65%" align="left">IT16TT advantage over a conventional plug at the same gap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>0.2 mm (as designed)</td><td>12–24%</td></tr>
+    <tr><td>0.3 mm</td><td>7–14%</td></tr>
+    <tr><td>0.4 mm</td><td>5–10%</td></tr>
+  </tbody>
+</table>
 
 Doubling the effective tip radius from 0.2 to 0.4 mm removes about 58% of the modeled advantage. This is a what-if check, not a wear prediction. It simply shows that the benefit lasts only as long as the fine tip keeps its shape.
 
@@ -214,11 +293,22 @@ Doubling the effective tip radius from 0.2 to 0.4 mm removes about 58% of the mo
 
 Another way to look at the results is to ask how much of an assumed voltage reserve remains under heavy load. I do not know the actual reserve of any particular L29, so the table uses three hypothetical starting points. Each starts with a conventional .060-inch plug as the reference.
 
-| Starting margin with a conventional .060" plug | Conventional plug, .060" | Conventional plug, .040" | Conventional plug, .035" | Denso IT16TT, .040" |
-| --- | --- | --- | --- | --- |
-| 10% | 9% | 31% | 38% | 42% (47% alternate) |
-| 25% | 20% | 39% | 45% | 49% (54% alternate) |
-| 50% | 33% | 49% | 54% | 57% (61% alternate) |
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="32%" align="left">Starting margin with a conventional .060" plug</th>
+      <th width="17%" align="right">Conventional plug, .060"</th>
+      <th width="17%" align="right">Conventional plug, .040"</th>
+      <th width="17%" align="right">Conventional plug, .035"</th>
+      <th width="17%" align="right">Denso IT16TT, .040"</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>10%</td><td align="right">9%</td><td align="right">31%</td><td align="right">38%</td><td align="right">42% (47% alternate)</td></tr>
+    <tr><td>25%</td><td align="right">20%</td><td align="right">39%</td><td align="right">45%</td><td align="right">49% (54% alternate)</td></tr>
+    <tr><td>50%</td><td align="right">33%</td><td align="right">49%</td><td align="right">54%</td><td align="right">57% (61% alternate)</td></tr>
+  </tbody>
+</table>
 
 ![Grouped bar chart of the illustrative remaining available-voltage budget for conventional .060, .040, and .035 inch plugs and the Denso IT16TT at .040 inch, at starting margins of 10, 25, and 50 percent](ignition-degradation-tolerance.png)
 
