@@ -30,6 +30,43 @@ The fine-wire Twin-Tip geometry also places less metal around the developing fla
 
 With all that said, I am not expecting a “magic” plug or additional horsepower. What I am looking for is reliable performance under load, a little more ignition reserve when cylinder pressure and firing-voltage demand are highest, and firing geometry that should remain consistent for a long time.
 
+### Initial owner experience after installation
+
+I installed the new spark plugs and wires on my 1997 K2500 Suburban with the L29 454. On the first drive afterward, the engine started immediately and seemed noticeably smoother. On several uphill stretches, I gave it more throttle and it continued to pull and accelerate in the same gear. Under similar conditions before the work, it had usually felt bogged down and then downshifted.
+
+These are preliminary, subjective observations from a single drive—not evidence that the spark plugs alone caused the change. The plugs and wires were replaced together, and other variables were not controlled. I will continue driving under different conditions and report back after putting more miles on the setup. So far, though, I am happy with the result and feel the time and money were well spent.
+
+### Exact parts purchased and cost
+
+#### Sixity Auto
+
+- [**Denso Iridium TT 4713/IT16TT spark plugs**](https://www.sixityauto.com/denso-4713-iridium-tt-spark-plug-for-it16tt-it16tt-tune-up-kit-3056104713.html)
+  - **SKU:** 3056104713
+  - **Quantity:** 8
+  - **Price:** $9.21 each
+- Parts subtotal: $73.68
+- Shipping and handling: $8.52
+- Tax: $4.85
+- **Sixity Auto total: $87.05**
+
+#### Summit Racing
+
+- [**ACDelco 19171857/748G spark-plug wire set**](https://www.summitracing.com/parts/ADO-748G)
+  - **Summit part number:** ADO-748G
+  - **Manufacturer part number:** 19171857
+  - **Quantity:** 1
+  - **Price:** $113.04
+- [**Design Engineering DEI 10552 Protect-A-Boots**](https://www.summitracing.com/parts/DEI-010552)
+  - **Summit part number:** DEI-010552
+  - **Manufacturer part number:** 10552
+  - **Quantity:** 1
+  - **Price:** $59.84
+- Parts subtotal: $172.88
+- Tax: $10.22
+- **Summit Racing total: $183.10**
+
+**Grand total for the plugs, wires, and Protect-A-Boots: $270.15**
+
 ![Two-panel chart comparing modeled firing-voltage requirements within each load condition: the conventional .060-inch reference is 100 percent, the conventional .040-inch plug is about 76 percent, the conventional .035-inch plug is about 69 percent, and the IT16TT at .040 inch is 59–67 percent during cruising and 58–64 percent under heavy load](opening-voltage-comparison.png)
 
 *This chart compares each plug with the conventional .060-inch reference under the same load. Rounded to whole percentages, the conventional .035-inch plug requires about 69% as much modeled firing voltage, and the IT16TT at .040 inch requires 59–67% during cruising and 58–64% under heavy load. Relative to the conventional .035-inch plug, the IT16TT bars correspond to about 3% less (reference case) at light load and about 7% less at heavy load.*
